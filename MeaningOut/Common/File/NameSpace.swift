@@ -9,6 +9,10 @@ import UIKit
 
 internal let AppName = "MeaningOut"
 
+enum Size {
+    static let bigProfileImageWidth = CGFloat(110)
+}
+
 enum PageTitle {
     static let nicknameSetting = "Nickname Setting"
     static let profileImageSetting = "Profile Image Setting"
@@ -51,17 +55,31 @@ enum AssetImage {
     static let likeSelected = UIImage(named: "like_selected")
     static let likeUnselected = UIImage(named: "like_unselected")
     
-    static let profile0 = UIImage(named: "profile_0")
-    static let profile1 = UIImage(named: "profile_1")
-    static let profile2 = UIImage(named: "profile_2")
-    static let profile3 = UIImage(named: "profile_3")
-    static let profile4 = UIImage(named: "profile_4")
-    static let profile5 = UIImage(named: "profile_5")
-    static let profile6 = UIImage(named: "profile_6")
-    static let profile7 = UIImage(named: "profile_7")
-    static let profile8 = UIImage(named: "profile_8")
-    static let profile9 = UIImage(named: "profile_9")
-    static let profile10 = UIImage(named: "profile_10")
-    static let profile11 = UIImage(named: "profile_11")
+    static let profile0 = UIImage(named: "profile_0")!
+    static let profile1 = UIImage(named: "profile_1")!
+    static let profile2 = UIImage(named: "profile_2")!
+    static let profile3 = UIImage(named: "profile_3")!
+    static let profile4 = UIImage(named: "profile_4")!
+    static let profile5 = UIImage(named: "profile_5")!
+    static let profile6 = UIImage(named: "profile_6")!
+    static let profile7 = UIImage(named: "profile_7")!
+    static let profile8 = UIImage(named: "profile_8")!
+    static let profile9 = UIImage(named: "profile_9")!
+    static let profile10 = UIImage(named: "profile_10")!
+    static let profile11 = UIImage(named: "profile_11")!
+    
+    static let profileImageList = [AssetImage.profile0, AssetImage.profile1, AssetImage.profile2, AssetImage.profile3, AssetImage.profile4, AssetImage.profile5, AssetImage.profile6, AssetImage.profile7, AssetImage.profile8, AssetImage.profile9, AssetImage.profile10, AssetImage.profile11]
+    
+    static let randomProfileImage = profileImageList.randomElement() ?? UIImage()
+}
+
+enum TextFieldValidationText {
+    static let validNickname = "사용할 수 있는 닉네임이에요"
+    
+    static let invalidCount = "2글자 이상 10글자 미만으로 작성해주세요"
+    static let invalidNumber = "숫자는 입력할 수 없어요"
+    static func invalidCharacter(invalid : String) -> String {
+        return "닉네임에 \(invalid)은 포함할 수 없어요"
+    }
 }
 
