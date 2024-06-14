@@ -18,7 +18,7 @@ final class ProfileCircleView : UIView {
         return view
     }()
     
-    private let imageView : UIImageView = {
+    let imageView : UIImageView = {
         let iv = UIImageView()
 //        iv.image = AssetImage.profile0
         iv.contentMode = .scaleAspectFill
@@ -50,10 +50,8 @@ final class ProfileCircleView : UIView {
     
     // MARK: - Initializer
     
-    init(width : CGFloat, image : UIImage) {
+    init(width : CGFloat) {
         super.init(frame: .zero)
-        
-        imageView.image = image
         
         configureSubView()
         configureLayout(width : width)

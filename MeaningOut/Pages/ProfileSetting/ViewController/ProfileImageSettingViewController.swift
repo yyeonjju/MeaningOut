@@ -8,14 +8,39 @@
 import UIKit
 
 class ProfileImageSettingViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        navigationItem.title = PageTitle.profileImageSetting
-        
-        view.backgroundColor = .gray1
+    // MARK: - UI
+    let viewManager = ProfileImageSettingView()
+    
+    var profileImage : UIImage?
+    
+    // MARK: - Properties
+    
+    // MARK: - Lifecycle
+    override func loadView() {
+        view = viewManager
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.title = PageTitle.profileImageSetting
+        configureBackgroundColor()
+        configureProfileImage()
+    }
+    
+
+    // MARK: - SetupDelegate
+    // MARK: - AddTarget
+    private func setupAddTarget() {
+    }
+    // MARK: - EventSelector
+    // MARK: - SetupUI
+    // MARK: - APIFetch
+    // MARK: - PageTransition
+    
+    // MARK: - Method
+    private func configureProfileImage() {
+        viewManager.profileCircleView.imageView.image = profileImage
+    }
 
 }

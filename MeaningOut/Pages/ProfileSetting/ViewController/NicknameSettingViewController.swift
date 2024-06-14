@@ -29,6 +29,7 @@ final class NicknameSettingViewController: UIViewController {
         setupDelegate()
         setupAddTarget()
         setupGestureEvent()
+        setupRandomProfileImage()
     }
     // MARK: - SetupDelegate
     private func setupDelegate() {
@@ -70,6 +71,10 @@ final class NicknameSettingViewController: UIViewController {
     // MARK: - PageTransition
     private func pushToNextPage() {
         let nextVC = ProfileImageSettingViewController()
+        let savedData = UserDefaults.standard.profileImageData
+        let savedImage = UIImage(data: savedData ?? Data())
+        
+        nextVC.profileImage = savedImage
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -121,6 +126,16 @@ final class NicknameSettingViewController: UIViewController {
         
         //4. 얼럿 띄워주기
         present(altert, animated: true)
+    }
+    
+    private func setupRandomProfileImage() {
+        let profileImage = AssetImage.randomProfileImage
+        let imageData = profileImage.pngData()
+        UserDefaults.standard.profileImageData = imageData
+
+        let savedData = UserDefaults.standard.profileImageData
+        let savedImage = UIImage(data: savedData ?? Data())
+        viewManager.profileCircleView.imageView.image = savedImage
     }
     
     

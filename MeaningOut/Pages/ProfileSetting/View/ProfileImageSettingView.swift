@@ -1,14 +1,15 @@
 //
-//  NicknameSettingView.swift
+//  ProfileImageSettingView.swift
 //  MeaningOut
 //
-//  Created by 하연주 on 6/14/24.
+//  Created by 하연주 on 6/15/24.
 //
 
 import UIKit
 import SnapKit
 
-final class NicknameSettingView : UIView {
+class ProfileImageSettingView: UIView {
+
     // MARK: - UI
     let profileCircleView : ProfileCircleView = {
         let view = ProfileCircleView(width: Size.bigProfileImageWidth)
@@ -16,12 +17,7 @@ final class NicknameSettingView : UIView {
         return view
     }()
     
-    let nicknameTextFieldView = NormalTextFieldView(placeholder: "닉네임을 입력해주세요 :)")
     
-    let completeButton = MainOrangeButton(title: "완료")
-    
-    
-    // MARK: - Lifecycle
     
     // MARK: - Initializer
     
@@ -40,7 +36,7 @@ final class NicknameSettingView : UIView {
     // MARK: - ConfigureUI
     
     func configureSubView() {
-        [profileCircleView, nicknameTextFieldView, completeButton]
+        [profileCircleView]
             .forEach{
                 addSubview($0)
             }
@@ -51,16 +47,7 @@ final class NicknameSettingView : UIView {
             make.centerX.equalToSuperview()
             make.top.equalTo(safeAreaLayoutGuide).offset(30)
         }
-        
-        nicknameTextFieldView.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
-            make.top.equalTo(profileCircleView.snp.bottom).offset(40)
-        }
-        
-        completeButton.snp.makeConstraints { make in
-            make.top.equalTo(nicknameTextFieldView.snp.bottom).offset(40)
-            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
-        }
     }
+
 
 }

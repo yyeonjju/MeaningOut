@@ -38,6 +38,8 @@
 		7DA96C192C1C68B30007FBFC /* NicknameSettingViewController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C182C1C68B30007FBFC /* NicknameSettingViewController+TextField.swift */; };
 		7DA96C1B2C1C9F1B0007FBFC /* utilFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C1A2C1C9F1B0007FBFC /* utilFunc.swift */; };
 		7DA96C1E2C1CA0200007FBFC /* SearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C1D2C1CA0200007FBFC /* SearchHomeViewController.swift */; };
+		7DA96C212C1CA70D0007FBFC /* ProfileImageSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C202C1CA70D0007FBFC /* ProfileImageSettingView.swift */; };
+		7DA96C232C1CA7FF0007FBFC /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C222C1CA7FF0007FBFC /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		7DA96C182C1C68B30007FBFC /* NicknameSettingViewController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NicknameSettingViewController+TextField.swift"; sourceTree = "<group>"; };
 		7DA96C1A2C1C9F1B0007FBFC /* utilFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilFunc.swift; sourceTree = "<group>"; };
 		7DA96C1D2C1CA0200007FBFC /* SearchHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeViewController.swift; sourceTree = "<group>"; };
+		7DA96C202C1CA70D0007FBFC /* ProfileImageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSettingView.swift; sourceTree = "<group>"; };
+		7DA96C222C1CA7FF0007FBFC /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 				7D893BB72C1B292D003D552E /* ViewController++.swift */,
 				7DA96C002C1BFA900007FBFC /* UILabel++.swift */,
 				7DA96C162C1C564D0007FBFC /* UITextField++.swift */,
+				7DA96C222C1CA7FF0007FBFC /* UserDefaults.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				7DA96C092C1C07F10007FBFC /* NicknameSettingView.swift */,
+				7DA96C202C1CA70D0007FBFC /* ProfileImageSettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,6 +379,7 @@
 				7DA96C192C1C68B30007FBFC /* NicknameSettingViewController+TextField.swift in Sources */,
 				7D893B7E2C1B1C42003D552E /* AppDelegate.swift in Sources */,
 				7D893B972C1B1DF4003D552E /* APIKey.swift in Sources */,
+				7DA96C212C1CA70D0007FBFC /* ProfileImageSettingView.swift in Sources */,
 				7D893BBB2C1B2DBA003D552E /* MainOrangeButton.swift in Sources */,
 				7D893B9D2C1B1FEA003D552E /* NameSpace.swift in Sources */,
 				7DA96C1B2C1C9F1B0007FBFC /* utilFunc.swift in Sources */,
@@ -386,6 +393,7 @@
 				7D893BA52C1B24BF003D552E /* OnboardingView.swift in Sources */,
 				7DA96C132C1C543F0007FBFC /* NormalTextFieldView.swift in Sources */,
 				7D893B992C1B1DFF003D552E /* APIURL.swift in Sources */,
+				7DA96C232C1CA7FF0007FBFC /* UserDefaults.swift in Sources */,
 				7DA96C012C1BFA900007FBFC /* UILabel++.swift in Sources */,
 				7D893B802C1B1C42003D552E /* SceneDelegate.swift in Sources */,
 				7DA96C152C1C550F0007FBFC /* Separator.swift in Sources */,
