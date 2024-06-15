@@ -66,6 +66,11 @@ final class SearchHomeViewController: UIViewController {
     // MARK: - SetupUI
     // MARK: - APIFetch
     // MARK: - PageTransition
+    func pushToSearchResultPage(searchKeyword : String) {
+        let vc = SearchResultViewController()
+        vc.searchKeyword = searchKeyword
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     // MARK: - Method
     private func setupRecentSearchList() {
@@ -80,5 +85,7 @@ final class SearchHomeViewController: UIViewController {
 extension SearchHomeViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         recentSearchList.insert(searchBar.text ?? "---", at: 0)
+        
+        pushToSearchResultPage(searchKeyword : searchBar.text ?? "")
     }
 }
