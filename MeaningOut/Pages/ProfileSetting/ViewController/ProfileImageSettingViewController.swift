@@ -10,7 +10,12 @@ import UIKit
 class ProfileImageSettingViewController: UIViewController {
     // MARK: - UI
     let viewManager = ProfileImageSettingView()
-    var profileImageName : String?
+    var profileImageName : String? {
+        didSet{
+            configureProfileImage()
+            viewManager.profileImageCollectionView.reloadData()
+        }
+    }
     
     // MARK: - Properties
     

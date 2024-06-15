@@ -29,8 +29,16 @@ final class NicknameSettingViewController: UIViewController {
         setupDelegate()
         setupAddTarget()
         setupGestureEvent()
-        setupRandomProfileImage()
+        setupRandomProfileImageName()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        configureProfileImage()
+    }
+    
     // MARK: - SetupDelegate
     private func setupDelegate() {
         viewManager.nicknameTextFieldView.textField.delegate = self
@@ -127,15 +135,18 @@ final class NicknameSettingViewController: UIViewController {
         present(altert, animated: true)
     }
     
-    private func setupRandomProfileImage() {
+    private func setupRandomProfileImageName() {
         let profileImageName = ProfileImageName.randomProfileImageName
         UserDefaults.standard.profileImageName = profileImageName
         
+        configureProfileImage()
+    }
+    
+    private func configureProfileImage() {
         let savedImageName =  UserDefaults.standard.profileImageName
         if let savedImageName {
             viewManager.profileCircleView.imageView.image = UIImage(named: savedImageName)
         }
-
     }
     
     
