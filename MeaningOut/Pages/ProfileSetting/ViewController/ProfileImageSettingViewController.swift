@@ -10,7 +10,7 @@ import UIKit
 class ProfileImageSettingViewController: UIViewController {
     // MARK: - UI
     let viewManager = ProfileImageSettingView()
-    var profileImage : UIImage?
+    var profileImageName : String?
     
     // MARK: - Properties
     
@@ -47,7 +47,8 @@ class ProfileImageSettingViewController: UIViewController {
     
     // MARK: - Method
     private func configureProfileImage() {
-        viewManager.profileCircleView.imageView.image = profileImage
+        guard let profileImageName else {return }
+        viewManager.profileCircleView.imageView.image = UIImage(named: profileImageName)
     }
 
 }

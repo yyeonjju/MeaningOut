@@ -71,9 +71,9 @@ final class NicknameSettingViewController: UIViewController {
     // MARK: - PageTransition
     private func pushToNextPage() {
         let nextVC = ProfileImageSettingViewController()
-        let savedImage = UserDefaults.standard.returnSavedProfileImage()
+        let savedImageName = UserDefaults.standard.profileImageName
         
-        nextVC.profileImage = savedImage
+        nextVC.profileImageName = savedImageName
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -128,11 +128,14 @@ final class NicknameSettingViewController: UIViewController {
     }
     
     private func setupRandomProfileImage() {
-        let profileImage = AssetImage.randomProfileImage
-        UserDefaults.standard.saveProfileImage(profileImage)
+        let profileImageName = ProfileImageName.randomProfileImageName
+        UserDefaults.standard.profileImageName = profileImageName
+        
+        let savedImageName =  UserDefaults.standard.profileImageName
+        if let savedImageName {
+            viewManager.profileCircleView.imageView.image = UIImage(named: savedImageName)
+        }
 
-        let savedImage =  UserDefaults.standard.returnSavedProfileImage()
-        viewManager.profileCircleView.imageView.image = savedImage
     }
     
     

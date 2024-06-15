@@ -8,19 +8,8 @@
 import UIKit
 
 extension UserDefaults {
-    private var profileImageData: Data? {
-        get { UserDefaults.standard.data(forKey: "profileImageData")}
-        set { UserDefaults.standard.set(newValue, forKey: "profileImageData") }
-    }
-    
-    func saveProfileImage(_ image : UIImage){
-        let imageData = image.pngData()
-        profileImageData = imageData
-    }
-    
-    func returnSavedProfileImage() -> UIImage? {
-        let savedData = profileImageData
-        let savedImage = UIImage(data: savedData ?? Data())
-        return savedImage
+    var profileImageName: String? {
+        get { UserDefaults.standard.string(forKey: "profileImageName")}
+        set { UserDefaults.standard.set(newValue, forKey: "profileImageName") }
     }
 }

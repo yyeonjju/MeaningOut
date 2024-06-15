@@ -29,8 +29,8 @@ class ProfileImageCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - ConfigureData
-    func configureData(image : UIImage, isSelected : Bool){
-        profileCircleView.imageView.image = image
+    func configureData(imageName : String, isSelected : Bool){
+        profileCircleView.imageView.image = UIImage(named: imageName)
         profileCircleView.configureSelectedUI(isSelected: isSelected)
     }
     
