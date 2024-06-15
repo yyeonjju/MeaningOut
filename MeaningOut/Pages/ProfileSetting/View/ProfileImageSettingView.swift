@@ -17,6 +17,11 @@ class ProfileImageSettingView: UIView {
         return view
     }()
     
+    lazy var profileImageCollectionView : UICollectionView = {
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionVewLayout())
+        return cv
+    }()
+    
     
     
     // MARK: - Initializer
@@ -36,7 +41,7 @@ class ProfileImageSettingView: UIView {
     // MARK: - ConfigureUI
     
     func configureSubView() {
-        [profileCircleView]
+        [profileCircleView, profileImageCollectionView]
             .forEach{
                 addSubview($0)
             }
@@ -47,6 +52,32 @@ class ProfileImageSettingView: UIView {
             make.centerX.equalToSuperview()
             make.top.equalTo(safeAreaLayoutGuide).offset(30)
         }
+        
+        profileImageCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(profileCircleView.snp.bottom).offset(30)
+            make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide)
+        }
+    }
+    
+
+    
+    private func configureCollectionVewLayout () -> UICollectionViewLayout{
+        let layout = UICollectionViewFlowLayout()
+        let numberofItemInrow : CGFloat = 4
+        
+        let cellIneterSpacing : CGFloat = 10
+        let sectionSpacing : CGFloat = 30
+        let inset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
+        let availableWidth = UIScreen.main.bounds.width - (cellIneterSpacing*numberofItemInrow) - inset.left - inset.right
+        
+        
+        layout.itemSize = CGSize(width: availableWidth/numberofItemInrow, height: availableWidth/numberofItemInrow)
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = cellIneterSpacing
+        layout.sectionInset = inset
+        
+        return layout
     }
 
 

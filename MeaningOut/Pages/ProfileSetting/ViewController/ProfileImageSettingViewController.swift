@@ -10,7 +10,6 @@ import UIKit
 class ProfileImageSettingViewController: UIViewController {
     // MARK: - UI
     let viewManager = ProfileImageSettingView()
-    
     var profileImage : UIImage?
     
     // MARK: - Properties
@@ -26,10 +25,18 @@ class ProfileImageSettingViewController: UIViewController {
         navigationItem.title = PageTitle.profileImageSetting
         configureBackgroundColor()
         configureProfileImage()
+        setupDelegate()
     }
     
 
     // MARK: - SetupDelegate
+    private func setupDelegate(){
+        viewManager.profileImageCollectionView.dataSource = self
+        viewManager.profileImageCollectionView.delegate = self
+        viewManager.profileImageCollectionView.register(ProfileImageCollectionViewCell.self, forCellWithReuseIdentifier: ProfileImageCollectionViewCell.identifier)
+    }
+    
+    
     // MARK: - AddTarget
     private func setupAddTarget() {
     }

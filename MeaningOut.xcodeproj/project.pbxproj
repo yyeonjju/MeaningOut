@@ -39,7 +39,10 @@
 		7DA96C1B2C1C9F1B0007FBFC /* utilFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C1A2C1C9F1B0007FBFC /* utilFunc.swift */; };
 		7DA96C1E2C1CA0200007FBFC /* SearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C1D2C1CA0200007FBFC /* SearchHomeViewController.swift */; };
 		7DA96C212C1CA70D0007FBFC /* ProfileImageSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C202C1CA70D0007FBFC /* ProfileImageSettingView.swift */; };
-		7DA96C232C1CA7FF0007FBFC /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C222C1CA7FF0007FBFC /* UserDefaults.swift */; };
+		7DA96C232C1CA7FF0007FBFC /* UserDefaults++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C222C1CA7FF0007FBFC /* UserDefaults++.swift */; };
+		7DA96C262C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C252C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift */; };
+		7DA96C292C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C282C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift */; };
+		7DA96C2B2C1D7FB90007FBFC /* ProfileImageSettingViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C2A2C1D7FB90007FBFC /* ProfileImageSettingViewController+CollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +76,10 @@
 		7DA96C1A2C1C9F1B0007FBFC /* utilFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilFunc.swift; sourceTree = "<group>"; };
 		7DA96C1D2C1CA0200007FBFC /* SearchHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeViewController.swift; sourceTree = "<group>"; };
 		7DA96C202C1CA70D0007FBFC /* ProfileImageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSettingView.swift; sourceTree = "<group>"; };
-		7DA96C222C1CA7FF0007FBFC /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		7DA96C222C1CA7FF0007FBFC /* UserDefaults++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults++.swift"; sourceTree = "<group>"; };
+		7DA96C252C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		7DA96C282C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
+		7DA96C2A2C1D7FB90007FBFC /* ProfileImageSettingViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileImageSettingViewController+CollectionView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 		7D893B7C2C1B1C42003D552E /* MeaningOut */ = {
 			isa = PBXGroup;
 			children = (
+				7DA96C272C1D7E0D0007FBFC /* Protocol */,
 				7D893BBC2C1BE994003D552E /* Resource */,
 				7D893BB92C1B2DA7003D552E /* Components */,
 				7D893BB22C1B261D003D552E /* Extension */,
@@ -195,7 +202,7 @@
 				7D893BB72C1B292D003D552E /* ViewController++.swift */,
 				7DA96C002C1BFA900007FBFC /* UILabel++.swift */,
 				7DA96C162C1C564D0007FBFC /* UITextField++.swift */,
-				7DA96C222C1CA7FF0007FBFC /* UserDefaults.swift */,
+				7DA96C222C1CA7FF0007FBFC /* UserDefaults++.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -222,6 +229,7 @@
 		7DA96C022C1BFE130007FBFC /* ProfileSetting */ = {
 			isa = PBXGroup;
 			children = (
+				7DA96C242C1D7DDD0007FBFC /* CollectionViewCell */,
 				7DA96C082C1C07DE0007FBFC /* View */,
 				7DA96C032C1BFE220007FBFC /* ViewController */,
 			);
@@ -234,6 +242,7 @@
 				7DA96C042C1BFE660007FBFC /* NicknameSettingViewController.swift */,
 				7DA96C062C1C04DD0007FBFC /* ProfileImageSettingViewController.swift */,
 				7DA96C182C1C68B30007FBFC /* NicknameSettingViewController+TextField.swift */,
+				7DA96C2A2C1D7FB90007FBFC /* ProfileImageSettingViewController+CollectionView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -286,6 +295,22 @@
 				7DA96C1D2C1CA0200007FBFC /* SearchHomeViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7DA96C242C1D7DDD0007FBFC /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7DA96C252C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		7DA96C272C1D7E0D0007FBFC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7DA96C282C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +405,7 @@
 				7D893B7E2C1B1C42003D552E /* AppDelegate.swift in Sources */,
 				7D893B972C1B1DF4003D552E /* APIKey.swift in Sources */,
 				7DA96C212C1CA70D0007FBFC /* ProfileImageSettingView.swift in Sources */,
+				7DA96C292C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift in Sources */,
 				7D893BBB2C1B2DBA003D552E /* MainOrangeButton.swift in Sources */,
 				7D893B9D2C1B1FEA003D552E /* NameSpace.swift in Sources */,
 				7DA96C1B2C1C9F1B0007FBFC /* utilFunc.swift in Sources */,
@@ -388,12 +414,14 @@
 				7DA96C0A2C1C07F10007FBFC /* NicknameSettingView.swift in Sources */,
 				7D893BB82C1B292D003D552E /* ViewController++.swift in Sources */,
 				7DA96C1E2C1CA0200007FBFC /* SearchHomeViewController.swift in Sources */,
+				7DA96C2B2C1D7FB90007FBFC /* ProfileImageSettingViewController+CollectionView.swift in Sources */,
 				7D893BB62C1B2638003D552E /* UIImageView++.swift in Sources */,
 				7D893BA32C1B2498003D552E /* OnboardingViewController.swift in Sources */,
+				7DA96C262C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift in Sources */,
 				7D893BA52C1B24BF003D552E /* OnboardingView.swift in Sources */,
 				7DA96C132C1C543F0007FBFC /* NormalTextFieldView.swift in Sources */,
 				7D893B992C1B1DFF003D552E /* APIURL.swift in Sources */,
-				7DA96C232C1CA7FF0007FBFC /* UserDefaults.swift in Sources */,
+				7DA96C232C1CA7FF0007FBFC /* UserDefaults++.swift in Sources */,
 				7DA96C012C1BFA900007FBFC /* UILabel++.swift in Sources */,
 				7D893B802C1B1C42003D552E /* SceneDelegate.swift in Sources */,
 				7DA96C152C1C550F0007FBFC /* Separator.swift in Sources */,

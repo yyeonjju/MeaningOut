@@ -50,8 +50,12 @@ final class ProfileCircleView : UIView {
     
     // MARK: - Initializer
     
-    init(width : CGFloat) {
+    init(width : CGFloat, isCameraIconShown : Bool = true) {
         super.init(frame: .zero)
+        
+        if !isCameraIconShown {
+            cameraIconView.alpha = 0
+        }
         
         configureSubView()
         configureLayout(width : width)
@@ -104,6 +108,19 @@ final class ProfileCircleView : UIView {
             make.size.equalTo(width/6)
             make.center.equalToSuperview()
         }
+    }
+    
+    func configureSelectedUI(isSelected : Bool){
+        print("서클 이미지!!! isSelected-> ", isSelected)
+        if isSelected {
+            imageContentView.layer.borderColor = Color.mainOrange?.cgColor
+            imageContentView.alpha = 1
+        } else {
+            imageContentView.layer.borderColor = Color.gray3?.cgColor
+            imageContentView.alpha = 0.5
+            
+        }
+        
     }
 
 }
