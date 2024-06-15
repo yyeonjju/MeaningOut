@@ -111,7 +111,6 @@ final class ProfileCircleView : UIView {
     }
     
     func configureSelectedUI(isSelected : Bool){
-        print("서클 이미지!!! isSelected-> ", isSelected)
         if isSelected {
             imageContentView.layer.borderColor = Color.mainOrange?.cgColor
             imageContentView.alpha = 1

@@ -28,6 +28,8 @@ class ProfileImageSettingViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = PageTitle.profileImageSetting
+        configureNavigationBackButtonItem()
+        
         configureBackgroundColor()
         configureProfileImage()
         setupDelegate()
@@ -40,15 +42,6 @@ class ProfileImageSettingViewController: UIViewController {
         viewManager.profileImageCollectionView.delegate = self
         viewManager.profileImageCollectionView.register(ProfileImageCollectionViewCell.self, forCellWithReuseIdentifier: ProfileImageCollectionViewCell.identifier)
     }
-    
-    
-    // MARK: - AddTarget
-    private func setupAddTarget() {
-    }
-    // MARK: - EventSelector
-    // MARK: - SetupUI
-    // MARK: - APIFetch
-    // MARK: - PageTransition
     
     // MARK: - Method
     private func configureProfileImage() {

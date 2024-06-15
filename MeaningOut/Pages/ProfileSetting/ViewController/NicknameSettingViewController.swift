@@ -26,6 +26,7 @@ final class NicknameSettingViewController: UIViewController {
         navigationItem.title = PageTitle.nicknameSetting
         
         configureBackgroundColor()
+        configureNavigationBackButtonItem()
         setupDelegate()
         setupAddTarget()
         setupGestureEvent()
@@ -61,8 +62,12 @@ final class NicknameSettingViewController: UIViewController {
 
         if textCount >= textFieldMinCount && textCount <= textFieldMaxCount{
             showConfirmAlert(){
+                ///루트뷰 변경
                 let vc = SearchHomeViewController()
                 changeRootView(rootVC: vc)
+                
+                ///UserDefaults에 닉네임 저장
+                UserDefaults.standard.nickname = self.viewManager.nicknameTextFieldView.textField.text
             }
         }
 
@@ -86,7 +91,7 @@ final class NicknameSettingViewController: UIViewController {
     }
     
     // MARK: - Method
-    func validateNicknameCount() {
+    private func validateNicknameCount() {
         var noticeText = ""
         guard let text = viewManager.nicknameTextFieldView.textField.text else {return }
         
@@ -136,7 +141,7 @@ final class NicknameSettingViewController: UIViewController {
     }
     
     private func setupRandomProfileImageName() {
-        let profileImageName = ProfileImageName.randomProfileImageName
+        let profileImageName = ProfileImageName.returnRandomProfileImageName()
         UserDefaults.standard.profileImageName = profileImageName
         
         configureProfileImage()

@@ -12,4 +12,9 @@ extension UserDefaults {
         get { UserDefaults.standard.string(forKey: "profileImageName")}
         set { UserDefaults.standard.set(newValue, forKey: "profileImageName") }
     }
+    
+    var nickname: String? {
+        get { UserDefaults.standard.string(forKey: "nickname")}
+        set { UserDefaults.standard.set(newValue, forKey: "nickname") }
+    }
 }

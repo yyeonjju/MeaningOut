@@ -45,6 +45,7 @@ enum IconImage {
     static let person = UIImage(systemName: "person")
     static let xmark = UIImage(systemName: "xmark")
     static let chevronRight = UIImage(systemName: "chevron.right")
+    static let chevronLeft = UIImage(systemName: "chevron.left")
     static let cameraFill = UIImage(systemName: "camera.fill")
 }
 
@@ -64,7 +65,9 @@ enum ProfileImageName {
     
     static let profileImageNameList = [ProfileImageName.profile0, ProfileImageName.profile1, ProfileImageName.profile2, ProfileImageName.profile3, ProfileImageName.profile4, ProfileImageName.profile5, ProfileImageName.profile6, ProfileImageName.profile7, ProfileImageName.profile8, ProfileImageName.profile9, ProfileImageName.profile10, ProfileImageName.profile11]
     
-    static let randomProfileImageName = profileImageNameList.randomElement()!
+    static func returnRandomProfileImageName() -> String {
+        return profileImageNameList.randomElement()!
+    }
 }
 
 enum AssetImage {
