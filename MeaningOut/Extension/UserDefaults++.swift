@@ -17,4 +17,9 @@ extension UserDefaults {
         get { UserDefaults.standard.string(forKey: "nickname")}
         set { UserDefaults.standard.set(newValue, forKey: "nickname") }
     }
+    
+    var searchList : [String]? {
+        get { UserDefaults.standard.array(forKey: "searchList") as? [String]}
+        set { UserDefaults.standard.set(newValue, forKey: "searchList") }
+    }
 }

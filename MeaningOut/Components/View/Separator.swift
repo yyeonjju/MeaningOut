@@ -10,7 +10,7 @@ import SnapKit
 
 final class Separator: UIView {
     
-    init(color : UIColor) {
+    init(color : UIColor = Color.gray3!) {
         super.init(frame: .zero)
         
         self.backgroundColor = color

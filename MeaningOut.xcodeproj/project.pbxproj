@@ -43,6 +43,9 @@
 		7DA96C262C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C252C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift */; };
 		7DA96C292C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C282C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift */; };
 		7DA96C2B2C1D7FB90007FBFC /* ProfileImageSettingViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C2A2C1D7FB90007FBFC /* ProfileImageSettingViewController+CollectionView.swift */; };
+		7DA96C2E2C1DBE0E0007FBFC /* SearchHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C2D2C1DBE0E0007FBFC /* SearchHomeView.swift */; };
+		7DA96C302C1DC5DE0007FBFC /* SearchHomeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C2F2C1DC5DE0007FBFC /* SearchHomeViewController+TableView.swift */; };
+		7DA96C332C1DCAD10007FBFC /* RecentSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C322C1DCAD10007FBFC /* RecentSearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +83,9 @@
 		7DA96C252C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DA96C282C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 		7DA96C2A2C1D7FB90007FBFC /* ProfileImageSettingViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileImageSettingViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		7DA96C2D2C1DBE0E0007FBFC /* SearchHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeView.swift; sourceTree = "<group>"; };
+		7DA96C2F2C1DC5DE0007FBFC /* SearchHomeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchHomeViewController+TableView.swift"; sourceTree = "<group>"; };
+		7DA96C322C1DCAD10007FBFC /* RecentSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +290,8 @@
 		7DA96C1C2C1CA0070007FBFC /* SearchHome */ = {
 			isa = PBXGroup;
 			children = (
+				7DA96C312C1DCAB40007FBFC /* TableViewCell */,
+				7DA96C2C2C1DBDFE0007FBFC /* View */,
 				7DA96C1F2C1CA0240007FBFC /* ViewController */,
 			);
 			path = SearchHome;
@@ -293,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				7DA96C1D2C1CA0200007FBFC /* SearchHomeViewController.swift */,
+				7DA96C2F2C1DC5DE0007FBFC /* SearchHomeViewController+TableView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -311,6 +320,22 @@
 				7DA96C282C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7DA96C2C2C1DBDFE0007FBFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7DA96C2D2C1DBE0E0007FBFC /* SearchHomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7DA96C312C1DCAB40007FBFC /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7DA96C322C1DCAD10007FBFC /* RecentSearchTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +430,7 @@
 				7D893B7E2C1B1C42003D552E /* AppDelegate.swift in Sources */,
 				7D893B972C1B1DF4003D552E /* APIKey.swift in Sources */,
 				7DA96C212C1CA70D0007FBFC /* ProfileImageSettingView.swift in Sources */,
+				7DA96C302C1DC5DE0007FBFC /* SearchHomeViewController+TableView.swift in Sources */,
 				7DA96C292C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift in Sources */,
 				7D893BBB2C1B2DBA003D552E /* MainOrangeButton.swift in Sources */,
 				7D893B9D2C1B1FEA003D552E /* NameSpace.swift in Sources */,
@@ -415,6 +441,7 @@
 				7D893BB82C1B292D003D552E /* ViewController++.swift in Sources */,
 				7DA96C1E2C1CA0200007FBFC /* SearchHomeViewController.swift in Sources */,
 				7DA96C2B2C1D7FB90007FBFC /* ProfileImageSettingViewController+CollectionView.swift in Sources */,
+				7DA96C2E2C1DBE0E0007FBFC /* SearchHomeView.swift in Sources */,
 				7D893BB62C1B2638003D552E /* UIImageView++.swift in Sources */,
 				7D893BA32C1B2498003D552E /* OnboardingViewController.swift in Sources */,
 				7DA96C262C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift in Sources */,
@@ -422,6 +449,7 @@
 				7DA96C132C1C543F0007FBFC /* NormalTextFieldView.swift in Sources */,
 				7D893B992C1B1DFF003D552E /* APIURL.swift in Sources */,
 				7DA96C232C1CA7FF0007FBFC /* UserDefaults++.swift in Sources */,
+				7DA96C332C1DCAD10007FBFC /* RecentSearchTableViewCell.swift in Sources */,
 				7DA96C012C1BFA900007FBFC /* UILabel++.swift in Sources */,
 				7D893B802C1B1C42003D552E /* SceneDelegate.swift in Sources */,
 				7DA96C152C1C550F0007FBFC /* Separator.swift in Sources */,

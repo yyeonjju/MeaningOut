@@ -16,6 +16,9 @@ enum Size {
 enum PageTitle {
     static let nicknameSetting = "Nickname Setting"
     static let profileImageSetting = "Profile Image Setting"
+    static func searchMain(nickname:String) -> String {
+        return "\(nickname)'s Meaning Out"
+    }
 }
 
 enum Font {
