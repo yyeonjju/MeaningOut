@@ -10,7 +10,7 @@ import UIKit
 final class SearchResultViewController: UIViewController {
     // MARK: - UI
     let viewManager = SearchResultView()
-    lazy var sortButtonList = [viewManager.simSortButton, viewManager.dateSortButton, viewManager.ascSortButton, viewManager.dscSortButton]
+    lazy var sortButtonList = viewManager.sortBUttonStackView.arrangedSubviews as! [OutlineBorderButton]
     
     // MARK: - Properties
     var searchKeyword : String?
@@ -52,10 +52,18 @@ final class SearchResultViewController: UIViewController {
         configureBackgroundColor()
         getSearchResult()
         setupAddTarget()
+        setupDelegate()
     
     }
 
     // MARK: - SetupDelegate
+    private func setupDelegate() {
+        viewManager.searchResultCollectionView.dataSource = self
+        viewManager.searchResultCollectionView.delegate = self
+        viewManager.searchResultCollectionView.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: SearchResultCollectionViewCell.identifier)
+        
+    }
+    
     // MARK: - AddTarget
     private func setupAddTarget() {
         sortButtonList

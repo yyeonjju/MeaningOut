@@ -10,6 +10,8 @@
 		7D30E53C2C1DF0C20073DBDA /* APIFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30E53B2C1DF0C20073DBDA /* APIFetcher.swift */; };
 		7D30E53E2C1DF18D0073DBDA /* Dictionary++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30E53D2C1DF18D0073DBDA /* Dictionary++.swift */; };
 		7D30E5402C1DF9CD0073DBDA /* OutlineBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30E53F2C1DF9CD0073DBDA /* OutlineBorderButton.swift */; };
+		7D30E5422C1ECAED0073DBDA /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30E5412C1ECAED0073DBDA /* SearchResultCollectionViewCell.swift */; };
+		7D30E5442C1ECB200073DBDA /* SearchResultViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30E5432C1ECB200073DBDA /* SearchResultViewController+CollectionView.swift */; };
 		7D893B7E2C1B1C42003D552E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D893B7D2C1B1C42003D552E /* AppDelegate.swift */; };
 		7D893B802C1B1C42003D552E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D893B7F2C1B1C42003D552E /* SceneDelegate.swift */; };
 		7D893B822C1B1C42003D552E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D893B812C1B1C42003D552E /* ViewController.swift */; };
@@ -58,6 +60,8 @@
 		7D30E53B2C1DF0C20073DBDA /* APIFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetcher.swift; sourceTree = "<group>"; };
 		7D30E53D2C1DF18D0073DBDA /* Dictionary++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary++.swift"; sourceTree = "<group>"; };
 		7D30E53F2C1DF9CD0073DBDA /* OutlineBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineBorderButton.swift; sourceTree = "<group>"; };
+		7D30E5412C1ECAED0073DBDA /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		7D30E5432C1ECB200073DBDA /* SearchResultViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResultViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		7D893B7A2C1B1C42003D552E /* MeaningOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeaningOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D893B7D2C1B1C42003D552E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D893B7F2C1B1C42003D552E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -377,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				7DA96C382C1DEAD30007FBFC /* SearchResultViewController.swift */,
+				7D30E5432C1ECB200073DBDA /* SearchResultViewController+CollectionView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 		7DA96C372C1DEAAF0007FBFC /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				7D30E5412C1ECAED0073DBDA /* SearchResultCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -491,6 +497,7 @@
 			files = (
 				7DA96C0E2C1C095C0007FBFC /* ProfileCircleView.swift in Sources */,
 				7DA96C3B2C1DEAEE0007FBFC /* SearchResultView.swift in Sources */,
+				7D30E5422C1ECAED0073DBDA /* SearchResultCollectionViewCell.swift in Sources */,
 				7D893B822C1B1C42003D552E /* ViewController.swift in Sources */,
 				7DA96C072C1C04DD0007FBFC /* ProfileImageSettingViewController.swift in Sources */,
 				7DA96C192C1C68B30007FBFC /* NicknameSettingViewController+TextField.swift in Sources */,
@@ -518,6 +525,7 @@
 				7DA96C262C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift in Sources */,
 				7D893BA52C1B24BF003D552E /* OnboardingView.swift in Sources */,
 				7DA96C132C1C543F0007FBFC /* NormalTextFieldView.swift in Sources */,
+				7D30E5442C1ECB200073DBDA /* SearchResultViewController+CollectionView.swift in Sources */,
 				7D893B992C1B1DFF003D552E /* APIURL.swift in Sources */,
 				7D30E53C2C1DF0C20073DBDA /* APIFetcher.swift in Sources */,
 				7DA96C232C1CA7FF0007FBFC /* UserDefaults++.swift in Sources */,

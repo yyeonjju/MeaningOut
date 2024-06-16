@@ -17,7 +17,7 @@ final class SearchResultView: UIView {
     let sortList = Sort.allCases
     
     // MARK: - UI
-    let totalLabel : UILabel = {
+    private let totalLabel : UILabel = {
         let label = UILabel()
         label.text = "-- 개의 검색 결과"
         label.font = Font.bold13
@@ -25,22 +25,22 @@ final class SearchResultView: UIView {
         return label
     }()
     
-    lazy var simSortButton : OutlineBorderButton = {
+    private lazy var simSortButton : OutlineBorderButton = {
         let button = OutlineBorderButton(title: sortList[0].sortText, isSelected: true)
         return button
     }()
     
-    lazy var dateSortButton : OutlineBorderButton = {
+    private lazy var dateSortButton : OutlineBorderButton = {
         let button = OutlineBorderButton(title: sortList[1].sortText, isSelected: false)
         return button
     }()
     
-    lazy var ascSortButton : OutlineBorderButton = {
+    private lazy var ascSortButton : OutlineBorderButton = {
         let button = OutlineBorderButton(title: sortList[2].sortText, isSelected: false)
         return button
     }()
     
-    lazy var dscSortButton : OutlineBorderButton = {
+    private lazy var dscSortButton : OutlineBorderButton = {
         let button = OutlineBorderButton(title: sortList[3].sortText, isSelected: false)
         return button
     }()
@@ -54,7 +54,10 @@ final class SearchResultView: UIView {
         return sv
     }()
     
-    
+    lazy var searchResultCollectionView : UICollectionView = {
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionVewLayout(numberofItemInrow: 2,sectionSpacing: 20 ,height: 350))
+        return cv
+    }()
     
 
     
@@ -75,7 +78,7 @@ final class SearchResultView: UIView {
     // MARK: - ConfigureUI
     
     func configureSubView() {
-        [totalLabel, sortBUttonStackView]
+        [totalLabel, sortBUttonStackView, searchResultCollectionView]
             .forEach{
                 addSubview($0)
             }
@@ -96,6 +99,11 @@ final class SearchResultView: UIView {
         sortBUttonStackView.snp.makeConstraints { make in
             make.top.equalTo(totalLabel.snp.bottom).offset(10)
             make.leading.equalTo(safeAreaLayoutGuide).offset(10)
+        }
+        
+        searchResultCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(sortBUttonStackView.snp.bottom).offset(20)
+            make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide)
         }
     }
 
