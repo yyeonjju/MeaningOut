@@ -7,13 +7,25 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class SearchResultCollectionViewCell: UICollectionViewCell {
+    var manageLikeItemIdList : ((SearchResultCollectionViewCell)-> Void) = {_ in }
+    
     // MARK: - UI
     private let productImageView : UIImageView = {
         let iv = UIImageView()
         iv.configureDefaultImageView()
+        iv.clipsToBounds = true
         return iv
+    }()
+    
+    private let likeButton : UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 10
+        button.layer.borderColor = .none
+        button.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     private let mallNamelLabel : UILabel = {
@@ -35,7 +47,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     
     private let pricelLabel : UILabel = {
         let label = UILabel()
-        label.text = Int("59500")!.formatted() + "원"
+        label.text = " - 원"
         label.font = Font.bold16
         label.textColor = Color.black
         return label
@@ -55,15 +67,46 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    // MARK: - Selector
+    
+    @objc func likeButtonTapped() {
+        manageLikeItemIdList(self)
+    }
+
+    
+    // MARK: - ConfigureData
+
+    func configureData(data : SearchResultItem, isLike : Bool) {
+        let url = URL(string: data.image)
+        productImageView.kf.setImage(with: url)
+        mallNamelLabel.text = data.mallName
+        productNamelLabel.text = data.title
+        pricelLabel.text = data.priceText
+        
+        if isLike {
+            likeButton.setImage(AssetImage.likeSelected, for: .normal)
+            likeButton.backgroundColor = Color.white
+            likeButton.alpha = 1
+        }else {
+            likeButton.setImage(AssetImage.likeUnselected, for: .normal)
+            likeButton.backgroundColor = Color.gray3
+            likeButton.alpha = 0.4
+        }
+
+    }
     
     
     // MARK: - ConfigureUI
     
     func configureSubView() {
-        [productImageView, mallNamelLabel, productNamelLabel, pricelLabel]
+        [productImageView, likeButton, mallNamelLabel, productNamelLabel, pricelLabel]
             .forEach{
                 contentView.addSubview($0)
             }
+//        [likeButton]
+//            .forEach{
+//                productImageView.addSubview($0)
+//            }
     }
     
     func configureLayout() {
@@ -72,6 +115,18 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
             make.top.horizontalEdges.equalTo(contentView)
             make.height.equalTo(250)
         }
+        
+//        likeButton.snp.makeConstraints { make in
+//            make.trailing.bottom.equalToSuperview().inset(10)
+//            make.size.equalTo(30)
+//        }
+        
+        
+        likeButton.snp.makeConstraints { make in
+            make.trailing.bottom.equalTo(productImageView).inset(10)
+            make.size.equalTo(30)
+        }
+        
         
         mallNamelLabel.snp.makeConstraints { make in
             make.top.equalTo(productImageView.snp.bottom).offset(5)

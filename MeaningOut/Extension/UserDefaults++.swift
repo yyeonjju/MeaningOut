@@ -22,4 +22,9 @@ extension UserDefaults {
         get { UserDefaults.standard.array(forKey: "searchList") as? [String]}
         set { UserDefaults.standard.set(newValue, forKey: "searchList") }
     }
+    
+    var likeItemIdList : [String]? {
+        get { UserDefaults.standard.array(forKey: "likeItemIdList") as? [String]}
+        set { UserDefaults.standard.set(newValue, forKey: "likeItemIdList") }
+    }
 }

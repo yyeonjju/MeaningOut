@@ -121,9 +121,9 @@ enum Sort : String, CaseIterable {
             case .date:
                 return "날짜순"
             case .asc:
-                return "가격높은순"
-            case .dsc:
                 return "가격낮은순"
+            case .dsc:
+                return "가격높은순"
             }
         }
     }

@@ -13,6 +13,11 @@ final class SearchResultViewController: UIViewController {
     lazy var sortButtonList = viewManager.sortBUttonStackView.arrangedSubviews as! [OutlineBorderButton]
     
     // MARK: - Properties
+    var likeItemIdList = UserDefaults.standard.likeItemIdList ?? [] {
+        didSet{
+            viewManager.searchResultCollectionView.reloadData()
+        }
+    }
     var searchKeyword : String?
     var page = 1
     var sort : String {
@@ -35,7 +40,12 @@ final class SearchResultViewController: UIViewController {
     }
     
     let displayAmount = 30
-    var searchResult : SearchResult?
+    var searchResult : SearchResult? {
+        didSet{
+            viewManager.totalLabel.text = searchResult?.totalLabelText
+            viewManager.searchResultCollectionView.reloadData()
+        }
+    }
     
     
     // MARK: - Lifecycle

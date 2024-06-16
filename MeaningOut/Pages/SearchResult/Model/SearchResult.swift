@@ -11,9 +11,16 @@ struct SearchResult: Codable {
     let lastBuildDate: String
     let total, start, display: Int
     let items: [SearchResultItem]
+    
+    var totalLabelText : String {
+        get{return "총 \(total.formatted()) 개의 검색 결과"}
+    }
 }
 
 struct SearchResultItem: Codable {
     let title, link, image, lprice, hprice, mallName, productId, productType, brand, maker: String
-    let category1, category2, category3, category4: String
+    
+    var priceText : String {
+        get{ return (Int(lprice) ?? 0).formatted() + " 원" }
+    }
 }

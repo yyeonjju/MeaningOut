@@ -17,7 +17,7 @@ final class SearchResultView: UIView {
     let sortList = Sort.allCases
     
     // MARK: - UI
-    private let totalLabel : UILabel = {
+    let totalLabel : UILabel = {
         let label = UILabel()
         label.text = "-- 개의 검색 결과"
         label.font = Font.bold13
