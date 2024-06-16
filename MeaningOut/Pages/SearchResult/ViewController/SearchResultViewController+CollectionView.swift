@@ -36,6 +36,14 @@ extension SearchResultViewController : UICollectionViewDelegate, UICollectionVie
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let searchResult else {return }
+        let itemData = searchResult.items[indexPath.row]
+        let isLiked = likeItemIdList.contains(itemData.productId)
+        pushToItemDetailPage(itemTitle:itemData.title, itemLink: itemData.link, isLiked : isLiked, itemId: itemData.productId)
+        
+    }
 }
 
 

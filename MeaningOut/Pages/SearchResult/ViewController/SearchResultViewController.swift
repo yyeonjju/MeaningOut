@@ -65,6 +65,10 @@ final class SearchResultViewController: UIViewController {
         setupDelegate()
     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        likeItemIdList = UserDefaults.standard.likeItemIdList ?? []
+    }
 
     // MARK: - SetupDelegate
     private func setupDelegate() {
@@ -120,5 +124,12 @@ final class SearchResultViewController: UIViewController {
     
     
     // MARK: - PageTransition
-
+    func pushToItemDetailPage(itemTitle: String, itemLink : String, isLiked : Bool, itemId : String) {
+        let vc = ItemDetailViewController()
+        vc.itemTitle = itemTitle
+        vc.itemLink = itemLink
+        vc.isLiked = isLiked
+        vc.itemId = itemId
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

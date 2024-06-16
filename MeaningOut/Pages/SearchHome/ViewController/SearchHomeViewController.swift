@@ -63,8 +63,6 @@ final class SearchHomeViewController: UIViewController {
         recentSearchList = []
     }
     
-    // MARK: - SetupUI
-    // MARK: - APIFetch
     // MARK: - PageTransition
     func pushToSearchResultPage(searchKeyword : String) {
         let vc = SearchResultViewController()
