@@ -16,11 +16,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-//        let rootVC = OnboardingViewController()
-        let rootVC = SearchHomeViewController()
-        let nav = UINavigationController(rootViewController: rootVC)
+        print("🎀nickname -> ", UserDefaults.standard.profileImageName)
+        print("🎀nickname -> ", UserDefaults.standard.nickname)
         
-        window?.rootViewController = nav
+        if UserDefaults.standard.nickname == nil {
+            let rootVC = OnboardingViewController()
+            let nav = UINavigationController(rootViewController: rootVC)
+            window?.rootViewController = nav
+        } else {
+            changeRootViewControllerToSearchHome()
+        }
+        
         window?.makeKeyAndVisible()
         
     }
@@ -53,6 +59,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    // MARK: - Change Root View
+    
+    /// SearchHomeViewController로 루트뷰를 변경합니다.
+    func changeRootViewControllerToSearchHome() {
+        guard let window = self.window else { return }
+        
+        //네비게이션 컨트롤러 생성
+        let searchHomeView = UINavigationController(rootViewController: SearchHomeViewController())
+
+        //탭바 컨트롤러 생성
+        let tabBarVC = UITabBarController()
+        tabBarVC.tabBar.tintColor = Color.mainOrange
+        tabBarVC.tabBar.unselectedItemTintColor = Color.gray3
+        
+        // 탭바로 사용하기 위한 뷰 컨트롤러들 설정
+        tabBarVC.setViewControllers([searchHomeView], animated: true)
+        tabBarVC.modalPresentationStyle = .fullScreen
+        
+        // 탭바 이름/이미지 설정 (이미지는 애플이 제공하는 것으로 사용)
+        guard let items = tabBarVC.tabBar.items else { return }
+        
+        //HomeViewController
+        items[0].title = "검색"
+        items[0].image = IconImage.search
+        
+        
+        window.rootViewController = tabBarVC
+        
+    }
 
 }
 

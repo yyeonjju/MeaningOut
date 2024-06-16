@@ -7,16 +7,6 @@
 
 import UIKit
 
-internal func changeRootView(rootVC : UIViewController) {
-    let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-    let sceneDelegate = windowScene?.delegate as? SceneDelegate
-
-    let rootVC = UINavigationController(rootViewController: rootVC)
-    
-    sceneDelegate?.window?.rootViewController = rootVC
-    sceneDelegate?.window?.makeKeyAndVisible()
-}
-
 
 internal func configureCollectionVewLayout (numberofItemInrow : Int, cellIneterSpacing : CGFloat = 10, sectionSpacing :  CGFloat = 30, height: CGFloat? = nil) -> UICollectionViewLayout{
     let layout = UICollectionViewFlowLayout()

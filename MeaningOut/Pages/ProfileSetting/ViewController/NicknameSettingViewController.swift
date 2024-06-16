@@ -63,8 +63,8 @@ final class NicknameSettingViewController: UIViewController {
         if textCount >= textFieldMinCount && textCount <= textFieldMaxCount{
             showConfirmAlert(){
                 ///루트뷰 변경
-                let vc = SearchHomeViewController()
-                changeRootView(rootVC: vc)
+                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+                sceneDelegate?.changeRootViewControllerToSearchHome()
                 
                 ///UserDefaults에 닉네임 저장
                 UserDefaults.standard.nickname = self.viewManager.nicknameTextFieldView.textField.text
