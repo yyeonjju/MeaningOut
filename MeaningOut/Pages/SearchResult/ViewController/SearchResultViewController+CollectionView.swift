@@ -37,3 +37,18 @@ extension SearchResultViewController : UICollectionViewDelegate, UICollectionVie
         return cell
     }
 }
+
+
+extension SearchResultViewController : UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        print(#function, indexPaths)
+        guard let searchResult else {return}
+        
+        for item in indexPaths {
+            if searchResult.items.count - 2 == item.row && (page*searchResult.display) < searchResult.total{
+                page += 1
+                getSearchResult()
+            }
+        }
+    }
+}

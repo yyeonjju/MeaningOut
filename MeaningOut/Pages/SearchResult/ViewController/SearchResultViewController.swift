@@ -18,7 +18,7 @@ final class SearchResultViewController: UIViewController {
             viewManager.searchResultCollectionView.reloadData()
         }
     }
-    var searchKeyword : String?
+    var searchKeyword : String? //이전 페이지에서 받는 데이터
     var page = 1
     var sort : String {
         get {
@@ -72,6 +72,8 @@ final class SearchResultViewController: UIViewController {
         viewManager.searchResultCollectionView.delegate = self
         viewManager.searchResultCollectionView.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: SearchResultCollectionViewCell.identifier)
         
+        viewManager.searchResultCollectionView.prefetchDataSource = self
+        
     }
     
     // MARK: - AddTarget
@@ -95,19 +97,24 @@ final class SearchResultViewController: UIViewController {
                 }
             }
         
-
+        page = 1
         getSearchResult()
         
     }
 
     // MARK: - APIFetch
-    private func getSearchResult() {
+    func getSearchResult() {
         guard let searchKeyword else {return }
         APIFetcher().getSearchResult(keyword: searchKeyword, page: page, sort: sort, displayAmount: displayAmount){ [weak self] data in
             guard let self else{return }
-            self.searchResult = data
-            
-//            print("--🧡🧡🧡searchResult--",searchResult)
+            if page == 1{ ///처음 데이터 불러올 때 & 정렬 버튼 누를 때
+                self.searchResult = data
+                if !self.searchResult!.items.isEmpty {
+                    self.viewManager.searchResultCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+                }
+            }else {
+                self.searchResult?.items.append(contentsOf: data.items)
+            }
         }
     }
     

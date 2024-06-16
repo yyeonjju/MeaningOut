@@ -10,7 +10,7 @@ import Foundation
 struct SearchResult: Codable {
     let lastBuildDate: String
     let total, start, display: Int
-    let items: [SearchResultItem]
+    var items: [SearchResultItem]
     
     var totalLabelText : String {
         get{return "총 \(total.formatted()) 개의 검색 결과"}
