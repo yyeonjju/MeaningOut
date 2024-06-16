@@ -6,21 +6,63 @@
 //
 
 import UIKit
+import SnapKit
+
+struct SortState {
+    let sortName : String
+    let isSelected : Bool
+}
 
 final class SearchResultView: UIView {
+    let sortList = Sort.allCases
+    
     // MARK: - UI
-    let label : UILabel = {
+    let totalLabel : UILabel = {
         let label = UILabel()
-        
+        label.text = "-- 개의 검색 결과"
+        label.font = Font.bold13
+        label.textColor = Color.mainOrange
         return label
     }()
+    
+    lazy var simSortButton : OutlineBorderButton = {
+        let button = OutlineBorderButton(title: sortList[0].sortText, isSelected: true)
+        return button
+    }()
+    
+    lazy var dateSortButton : OutlineBorderButton = {
+        let button = OutlineBorderButton(title: sortList[1].sortText, isSelected: false)
+        return button
+    }()
+    
+    lazy var ascSortButton : OutlineBorderButton = {
+        let button = OutlineBorderButton(title: sortList[2].sortText, isSelected: false)
+        return button
+    }()
+    
+    lazy var dscSortButton : OutlineBorderButton = {
+        let button = OutlineBorderButton(title: sortList[3].sortText, isSelected: false)
+        return button
+    }()
+    
+    lazy var sortBUttonStackView : UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [simSortButton, dateSortButton, ascSortButton, dscSortButton])
+        sv.axis = .horizontal
+        sv.spacing = 10
+        sv.alignment = .center
+        sv.distribution = .fill
+        return sv
+    }()
+    
+    
+    
+
     
     // MARK: - Initializer
     
     override init(frame : CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .blue
         configureSubView()
         configureLayout()
     }
@@ -33,14 +75,28 @@ final class SearchResultView: UIView {
     // MARK: - ConfigureUI
     
     func configureSubView() {
-        [label]
+        [totalLabel, sortBUttonStackView]
             .forEach{
                 addSubview($0)
             }
     }
     
     func configureLayout() {
+        totalLabel.snp.makeConstraints { make in
+            make.top.leading.equalTo(safeAreaLayoutGuide).offset(10)
+        }
         
+        [simSortButton, dateSortButton, ascSortButton, dscSortButton]
+            .forEach{
+                $0.snp.makeConstraints { make in
+                    make.height.equalTo(25)
+                }
+            }
+        
+        sortBUttonStackView.snp.makeConstraints { make in
+            make.top.equalTo(totalLabel.snp.bottom).offset(10)
+            make.leading.equalTo(safeAreaLayoutGuide).offset(10)
+        }
     }
 
 

@@ -23,10 +23,9 @@ class APIFetcher {
     ) {
         AF.request(url, method: .get, headers: headers)
             .responseDecodable(of: T.self) {response in
-                print(response)
                 switch response.result {
                 case .success(let value) :
-                    print("success❤️", value)
+//                    print("success❤️", value)
                     completionHandler(value)
                 case .failure(let error) :
                     print("error💚", error)
@@ -45,6 +44,8 @@ extension APIFetcher : APIFetchable{
             "X-Naver-Client-Id" : APIKey.naverClientID,
             "X-Naver-Client-Secret" : APIKey.naverKey
         ]
+        
+        print("request url", "\(APIURL.naverShopping)\(queryParamDictionary.queryString)")
         
         getSingle(model: SearchResult.self, url: "\(APIURL.naverShopping)\(queryParamDictionary.queryString)", headers: headers){ value in
             handler(value)

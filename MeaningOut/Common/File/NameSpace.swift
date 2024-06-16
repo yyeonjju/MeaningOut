@@ -105,3 +105,27 @@ enum TextFieldValidationText {
     }
 }
 
+enum Sort : String, CaseIterable {
+    //rawValue를 api fetch에 사용하기 위해
+    case sim //정확도순 내림차순
+    case date //날짜순 내림차순
+    case asc //가격순 오름차순
+    case dsc //가격순 내림차순
+    
+    //각 case에 대한 표시어로서의 계산 프로퍼티
+    var sortText : String {
+        get {
+            switch self {
+            case .sim:
+                return "정확도"
+            case .date:
+                return "날짜순"
+            case .asc:
+                return "가격높은순"
+            case .dsc:
+                return "가격낮은순"
+            }
+        }
+    }
+}
+
