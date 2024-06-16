@@ -11,6 +11,7 @@ internal let AppName = "MeaningOut"
 
 enum Size {
     static let bigProfileImageWidth = CGFloat(110)
+    static let middleProfileImageWidth = CGFloat(80)
 }
 
 enum PageTitle {
@@ -19,6 +20,7 @@ enum PageTitle {
     static func searchMain(nickname:String) -> String {
         return "\(nickname)'s Meaning Out"
     }
+    static let Settings = "Settings"
 }
 
 enum Font {
@@ -129,3 +131,13 @@ enum Sort : String, CaseIterable {
     }
 }
 
+
+enum SettingOptions : String, CaseIterable {
+    case likeList = "나의 장바구니 목록"
+    case fAQ = "자주 묻는 질문"
+    case inquiry = "1:1문의"
+    case pushSetting = "알림 설정"
+    case userWithdrawal = "탈퇴하기"
+    
+    
+}

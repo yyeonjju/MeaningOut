@@ -66,7 +66,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let window = self.window else { return }
         
         //네비게이션 컨트롤러 생성
-        let searchHomeView = UINavigationController(rootViewController: SearchHomeViewController())
+        let searchHomeVC = UINavigationController(rootViewController: SearchHomeViewController())
+        let settingsVC = UINavigationController(rootViewController: SettingsViewController())
 
         //탭바 컨트롤러 생성
         let tabBarVC = UITabBarController()
@@ -74,15 +75,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.tabBar.unselectedItemTintColor = Color.gray3
         
         // 탭바로 사용하기 위한 뷰 컨트롤러들 설정
-        tabBarVC.setViewControllers([searchHomeView], animated: true)
+        tabBarVC.setViewControllers([searchHomeVC, settingsVC], animated: true)
         tabBarVC.modalPresentationStyle = .fullScreen
         
         // 탭바 이름/이미지 설정 (이미지는 애플이 제공하는 것으로 사용)
         guard let items = tabBarVC.tabBar.items else { return }
         
-        //HomeViewController
+        //SearchHomeViewController
         items[0].title = "검색"
         items[0].image = IconImage.search
+        
+        //SettingsViewController
+        items[1].title = "설정"
+        items[1].image = IconImage.person
         
         
         window.rootViewController = tabBarVC
