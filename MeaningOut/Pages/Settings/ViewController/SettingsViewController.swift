@@ -6,14 +6,11 @@
 //
 
 import UIKit
+import SnapKit
 
 final class SettingsViewController: UIViewController {
     // MARK: - UI
     let viewManager = SettingsView()
-    
-    // MARK: - Properties
-    static let settingsCellIdentifier = "SettingsCell"
-    
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -31,7 +28,7 @@ final class SettingsViewController: UIViewController {
     private func setupDelegate() {
         viewManager.settingsTableView.dataSource = self
         viewManager.settingsTableView.delegate = self
-        viewManager.settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: SettingsViewController.settingsCellIdentifier)
+        viewManager.settingsTableView.register(CustomTrailingLabelTableViewCell.self, forCellReuseIdentifier: CustomTrailingLabelTableViewCell.identifier)
     }
     
     // MARK: - AddTarget
@@ -50,8 +47,11 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsViewController.settingsCellIdentifier)!
-        cell.textLabel?.text = SettingOptions.allCases[indexPath.row].rawValue
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTrailingLabelTableViewCell.identifier) as! CustomTrailingLabelTableViewCell
+        let rowData = SettingOptions.allCases[indexPath.row]
+        let likeAmount = UserDefaults.standard.likeItemIdList?.count
+        cell.textLabel?.text = rowData.rawValue
+        cell.trailingView = rowData.trailingDetailView(likeCount: likeAmount ?? 0)
         return cell
     }
 }

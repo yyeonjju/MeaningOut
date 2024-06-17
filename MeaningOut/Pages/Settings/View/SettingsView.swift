@@ -11,7 +11,12 @@ import SnapKit
 final class SettingsView: UIView {
 
     // MARK: - UI
-    
+    private let profileContentsView : UIView = {
+        let view = UIView()
+        
+        return view
+    }()
+
     private let profileCircleView : ProfileCircleView = {
         let view = ProfileCircleView(width: Size.middleProfileImageWidth, isCameraIconShown: false)
         guard let profileImageName = UserDefaults.standard.profileImageName else {return view}
@@ -65,39 +70,45 @@ final class SettingsView: UIView {
     // MARK: - ConfigureUI
     
     func configureSubView() {
-        [profileCircleView, nicknameLabel, dateLabel, rightArrowIcon, settingsTableView]
+        [profileContentsView, settingsTableView]
             .forEach{
                 addSubview($0)
             }
+        [profileCircleView, nicknameLabel, dateLabel, rightArrowIcon]
+            .forEach{
+                profileContentsView.addSubview($0)
+            }
+        
     }
     
     func configureLayout() {
-        profileCircleView.snp.makeConstraints { make in
+        profileContentsView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(20)
-            make.leading.equalTo(safeAreaLayoutGuide).offset(20)
-
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
+            make.bottom.equalTo(profileCircleView.snp.bottom)
         }
         
+        profileCircleView.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview()
+        }
         nicknameLabel.snp.makeConstraints { make in
             make.top.equalTo(profileCircleView.snp.top).offset(25)
             make.leading.equalTo(profileCircleView.snp.trailing).offset(20)
             
         }
-        
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(nicknameLabel.snp.bottom).offset(4)
             make.leading.equalTo(profileCircleView.snp.trailing).offset(20)
 
         }
-        
         rightArrowIcon.snp.makeConstraints { make in
-            make.trailing.equalTo(safeAreaLayoutGuide).inset(20)
+            make.trailing.equalToSuperview()
             make.size.equalTo(20)
             make.centerY.equalTo(profileCircleView.snp.centerY)
         }
         
         settingsTableView.snp.makeConstraints { make in
-            make.top.equalTo(profileCircleView.snp.bottom).offset(20)
+            make.top.equalTo(profileContentsView.snp.bottom).offset(20)
             make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(10)
             make.bottom.equalTo(safeAreaLayoutGuide)
         }
