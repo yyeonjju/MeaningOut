@@ -32,7 +32,7 @@ final class SettingsView: UIView {
         return label
     }()
     
-    private let dateLabel : UILabel = {
+    let dateLabel : UILabel = {
         let label = UILabel()
         label.text = "2222.22.22 가입"
         label.font = Font.regular13

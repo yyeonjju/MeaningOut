@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D2232E22C2064B50047B1CE /* EditNicknameSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2232E12C2064B50047B1CE /* EditNicknameSettingViewController.swift */; };
+		7D2232E62C2079010047B1CE /* DateFormatter++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2232E52C2079010047B1CE /* DateFormatter++.swift */; };
 		7D24F8A02C1F11E6002D769C /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F89F2C1F11E6002D769C /* ItemDetailViewController.swift */; };
 		7D24F8A62C1F28D8002D769C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F8A52C1F28D8002D769C /* SettingsViewController.swift */; };
 		7D24F8AA2C1F2A62002D769C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F8A92C1F2A62002D769C /* SettingsView.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		7D2232E12C2064B50047B1CE /* EditNicknameSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknameSettingViewController.swift; sourceTree = "<group>"; };
+		7D2232E52C2079010047B1CE /* DateFormatter++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter++.swift"; sourceTree = "<group>"; };
 		7D24F89F2C1F11E6002D769C /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		7D24F8A52C1F28D8002D769C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7D24F8A92C1F2A62002D769C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				7DA96C162C1C564D0007FBFC /* UITextField++.swift */,
 				7DA96C222C1CA7FF0007FBFC /* UserDefaults++.swift */,
 				7D30E53D2C1DF18D0073DBDA /* Dictionary++.swift */,
+				7D2232E52C2079010047B1CE /* DateFormatter++.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				7DA96C302C1DC5DE0007FBFC /* SearchHomeViewController+TableView.swift in Sources */,
 				7DA96C292C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift in Sources */,
 				7D893BBB2C1B2DBA003D552E /* MainOrangeButton.swift in Sources */,
+				7D2232E62C2079010047B1CE /* DateFormatter++.swift in Sources */,
 				7D893B9D2C1B1FEA003D552E /* NameSpace.swift in Sources */,
 				7DA96C1B2C1C9F1B0007FBFC /* utilFunc.swift in Sources */,
 				7D24F8D72C200D95002D769C /* CustomTrailingLabelTableViewCell.swift in Sources */,

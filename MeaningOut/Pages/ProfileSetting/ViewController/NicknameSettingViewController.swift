@@ -79,6 +79,11 @@ class NicknameSettingViewController: UIViewController {
                 
                 ///UserDefaults에 닉네임 저장
                 UserDefaults.standard.nickname = self.viewManager.nicknameTextFieldView.textField.text
+                
+                if self.pageMode == .onboarding{
+                    ///UserDefaults에 날짜 저장
+                    UserDefaults.standard.signupDate = Date()
+                }
             }
         }
 

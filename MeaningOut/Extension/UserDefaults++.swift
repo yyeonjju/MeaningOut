@@ -18,6 +18,12 @@ extension UserDefaults {
         set { UserDefaults.standard.set(newValue, forKey: "nickname") }
     }
     
+    var signupDate: Date? {
+        get { UserDefaults.standard.object(forKey: "signupDate") as! Date?}
+        set { UserDefaults.standard.set(newValue, forKey: "signupDate") }
+    }
+    
+    
     var searchList : [String]? {
         get { UserDefaults.standard.array(forKey: "searchList") as? [String]}
         set { UserDefaults.standard.set(newValue, forKey: "searchList") }

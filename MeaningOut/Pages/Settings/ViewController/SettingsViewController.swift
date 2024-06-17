@@ -66,8 +66,12 @@ final class SettingsViewController: UIViewController {
         
         let profileImageName = UserDefaults.standard.profileImageName ?? ""
         let nickname = UserDefaults.standard.nickname
+        let signupDate = UserDefaults.standard.signupDate ?? Date()
+        let signupDateString = DateFormatter.yearDotMonthDotDay.string(from: signupDate)
+        
         viewManager.profileCircleView.imageView.image = UIImage(named: profileImageName)
         viewManager.nicknameLabel.text = nickname
+        viewManager.dateLabel.text = "\(signupDateString) 가입"
     }
     
     // MARK: - PageTransition
