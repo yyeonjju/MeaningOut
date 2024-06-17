@@ -139,10 +139,10 @@ class NicknameSettingViewController: UIViewController {
         let altert = UIAlertController(title: "프로필 세팅을 완료하시겠습니까?", message: nil, preferredStyle: .alert)
         
         //2. 버튼
-        let confirm = UIAlertAction(title: "열기", style: .default){ _ in
+        let confirm = UIAlertAction(title: "확인", style: .default){ _ in
             confirmHandler()
         }
-        let cancel = UIAlertAction(title: "취소", style: .cancel) //cancel은 정해진 위치가 있다 (3개 이상일 땐 맨밑, 2개일 땐 왼쪽)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
         
         //3. 액션 버튼 붙이기
         altert.addAction(confirm)

@@ -775,7 +775,7 @@
 				DEVELOPMENT_TEAM = 5B4DDA3JD6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeaningOut/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "미닝아웃";
+				INFOPLIST_KEY_CFBundleDisplayName = "하연주";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -809,7 +809,7 @@
 				DEVELOPMENT_TEAM = 5B4DDA3JD6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeaningOut/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "미닝아웃";
+				INFOPLIST_KEY_CFBundleDisplayName = "하연주";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
