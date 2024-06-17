@@ -7,13 +7,15 @@
 
 import UIKit
 
-final class NicknameSettingViewController: UIViewController {
+class NicknameSettingViewController: UIViewController {
+    
     // MARK: - UI
     let viewManager = NicknameSettingView()
     
     // MARK: - Properties
     let textFieldMinCount = 2
     let textFieldMaxCount = 9
+    var pageMode : PageMode = .onboarding
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -30,7 +32,10 @@ final class NicknameSettingViewController: UIViewController {
         setupDelegate()
         setupAddTarget()
         setupGestureEvent()
-        setupRandomProfileImageName()
+        if pageMode == .onboarding {
+            setupRandomProfileImageName()
+        }
+
     }
     
     
@@ -62,9 +67,15 @@ final class NicknameSettingViewController: UIViewController {
 
         if textCount >= textFieldMinCount && textCount <= textFieldMaxCount{
             showConfirmAlert(){
-                ///루트뷰 변경
-                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-                sceneDelegate?.changeRootViewControllerToSearchHome()
+                
+                if self.pageMode == .onboarding {
+                    ///루트뷰 변경
+                    let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+                    sceneDelegate?.changeRootViewControllerToSearchHome()
+                }else {
+                    ///pop 뷰컨트롤러
+                    self.navigationController?.popViewController(animated: true)
+                }
                 
                 ///UserDefaults에 닉네임 저장
                 UserDefaults.standard.nickname = self.viewManager.nicknameTextFieldView.textField.text
@@ -84,6 +95,7 @@ final class NicknameSettingViewController: UIViewController {
     // MARK: - PageTransition
     private func pushToNextPage() {
         let nextVC = ProfileImageSettingViewController()
+        nextVC.pageMode = self.pageMode
         let savedImageName = UserDefaults.standard.profileImageName
         
         nextVC.profileImageName = savedImageName

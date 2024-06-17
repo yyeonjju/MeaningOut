@@ -35,15 +35,25 @@ final class SearchHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nickname = UserDefaults.standard.nickname
-
-        navigationItem.title = PageTitle.searchMain(nickname: nickname ?? "-")
+        sestupNavigation()
         configureBackgroundColor()
         setupRecentSearchList()
         setupDelegate()
         setupAddTarget()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        sestupNavigation()
+    }
+    
+    // MARK: - SetupNavigation
+    private func sestupNavigation() {
+        let nickname = UserDefaults.standard.nickname
+        navigationItem.title = PageTitle.searchMain(nickname: nickname ?? "-")
+    }
+    
     // MARK: - SetupDelegate
     private func setupDelegate() {
         viewManager.searchBar.delegate = self

@@ -10,6 +10,12 @@ import SnapKit
 
 internal let AppName = "MeaningOut"
 
+
+enum PageMode {
+    case onboarding
+    case edit
+}
+
 enum Size {
     static let bigProfileImageWidth = CGFloat(110)
     static let middleProfileImageWidth = CGFloat(80)

@@ -22,6 +22,7 @@ final class SettingsViewController: UIViewController {
         navigationItem.title = PageTitle.Settings
         configureBackgroundColor()
         setupDelegate()
+        setupGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +30,28 @@ final class SettingsViewController: UIViewController {
         
         setupUIData()
     }
+    
+    // MARK: - SetupGesture
+    private func setupGesture(){
+        let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(profileViewTapped))
+        tapGesture.minimumPressDuration = 0
+        viewManager.profileContentsView.addGestureRecognizer(tapGesture)
+    }
+
+    
+    // MARK: - EventSelector
+    
+    //뷰를 탭하는 제스쳐에 따라 배경 색 다르게 주기위해 UILongPressGestureRecognizer.state으로 상태 분기하는함수 생성
+    @objc private func profileViewTapped(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            viewManager.profileContentsView.backgroundColor = Color.gray3?.withAlphaComponent(0.4)
+        } else if gesture.state == .ended {
+            viewManager.profileContentsView.backgroundColor = Color.white
+            
+            pushToProfileSettingPage()
+        }
+    }
+    
     
     // MARK: - SetupDelegate
     private func setupDelegate() {
@@ -51,6 +74,12 @@ final class SettingsViewController: UIViewController {
     private func changeRootView() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.changeRootViewControllerToOnboarding()
+    }
+    
+    private func pushToProfileSettingPage() {
+        let vc = EditNicknameSettingViewController()
+        vc.pageMode = .edit
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     // MARK: - Method

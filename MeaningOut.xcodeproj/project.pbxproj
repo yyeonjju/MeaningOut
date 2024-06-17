@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D2232E22C2064B50047B1CE /* EditNicknameSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2232E12C2064B50047B1CE /* EditNicknameSettingViewController.swift */; };
 		7D24F8A02C1F11E6002D769C /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F89F2C1F11E6002D769C /* ItemDetailViewController.swift */; };
 		7D24F8A62C1F28D8002D769C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F8A52C1F28D8002D769C /* SettingsViewController.swift */; };
 		7D24F8AA2C1F2A62002D769C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24F8A92C1F2A62002D769C /* SettingsView.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D2232E12C2064B50047B1CE /* EditNicknameSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknameSettingViewController.swift; sourceTree = "<group>"; };
 		7D24F89F2C1F11E6002D769C /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		7D24F8A52C1F28D8002D769C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7D24F8A92C1F2A62002D769C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				7DA96C062C1C04DD0007FBFC /* ProfileImageSettingViewController.swift */,
 				7DA96C182C1C68B30007FBFC /* NicknameSettingViewController+TextField.swift */,
 				7DA96C2A2C1D7FB90007FBFC /* ProfileImageSettingViewController+CollectionView.swift */,
+				7D2232E12C2064B50047B1CE /* EditNicknameSettingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				7DA96C1E2C1CA0200007FBFC /* SearchHomeViewController.swift in Sources */,
 				7DA96C2B2C1D7FB90007FBFC /* ProfileImageSettingViewController+CollectionView.swift in Sources */,
 				7D24F8A62C1F28D8002D769C /* SettingsViewController.swift in Sources */,
+				7D2232E22C2064B50047B1CE /* EditNicknameSettingViewController.swift in Sources */,
 				7D24F8A02C1F11E6002D769C /* ItemDetailViewController.swift in Sources */,
 				7DA96C2E2C1DBE0E0007FBFC /* SearchHomeView.swift in Sources */,
 				7D893BB62C1B2638003D552E /* UIImageView++.swift in Sources */,

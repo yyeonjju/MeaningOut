@@ -11,7 +11,7 @@ import SnapKit
 final class SettingsView: UIView {
 
     // MARK: - UI
-    private let profileContentsView : UIView = {
+    let profileContentsView : UIView = {
         let view = UIView()
         
         return view

@@ -18,6 +18,7 @@ class ProfileImageSettingViewController: UIViewController {
     }
     
     // MARK: - Properties
+    var pageMode : PageMode = .onboarding
     
     // MARK: - Lifecycle
     override func loadView() {
