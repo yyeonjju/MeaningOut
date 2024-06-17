@@ -109,7 +109,7 @@ final class SettingsView: UIView {
         
         settingsTableView.snp.makeConstraints { make in
             make.top.equalTo(profileContentsView.snp.bottom).offset(20)
-            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(10)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
             make.bottom.equalTo(safeAreaLayoutGuide)
         }
     }

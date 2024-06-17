@@ -16,13 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        print("🎀nickname -> ", UserDefaults.standard.profileImageName)
-        print("🎀nickname -> ", UserDefaults.standard.nickname)
         
         if UserDefaults.standard.nickname == nil {
-            let rootVC = OnboardingViewController()
-            let nav = UINavigationController(rootViewController: rootVC)
-            window?.rootViewController = nav
+            changeRootViewControllerToOnboarding()
         } else {
             changeRootViewControllerToSearchHome()
         }
@@ -63,6 +59,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     /// SearchHomeViewController로 루트뷰를 변경합니다.
     func changeRootViewControllerToSearchHome() {
+        
         guard let window = self.window else { return }
         
         //네비게이션 컨트롤러 생성
@@ -91,6 +88,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         window.rootViewController = tabBarVC
+        
+    }
+    
+    /// OnboardingViewController로 루트뷰를 변경합니다.
+    func changeRootViewControllerToOnboarding() {
+        
+        guard let window = self.window else { return }
+        
+        //네비게이션 컨트롤러 생성
+        let onboardingVC = UINavigationController(rootViewController: OnboardingViewController())
+        
+        window.rootViewController = onboardingVC
         
     }
 

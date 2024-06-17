@@ -32,31 +32,47 @@ final class SettingsViewController: UIViewController {
     }
     
     // MARK: - AddTarget
-    private func setupAddTarget() {
-    }
     // MARK: - EventSelector
     // MARK: - SetupUI
     // MARK: - APIFetch
     // MARK: - PageTransition
+    private func changeRootView() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        sceneDelegate?.changeRootViewControllerToOnboarding()
+    }
 
-}
-
-extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingOptions.allCases.count
+    // MARK: - Method
+    func userWithdrawalCellTapped() {
+        showWithdrawalConformAlert()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTrailingLabelTableViewCell.identifier) as! CustomTrailingLabelTableViewCell
-        let rowData = SettingOptions.allCases[indexPath.row]
-        let likeAmount = UserDefaults.standard.likeItemIdList?.count
-        cell.textLabel?.text = rowData.rawValue
-        cell.trailingView = rowData.trailingDetailView(likeCount: likeAmount ?? 0)
-        return cell
+    private func showWithdrawalConformAlert() {
+        //얼럿 컨트롤러
+        let altert = UIAlertController(title: "탈퇴하기", message: "탈퇴를하면 데이터가 모두 초기화됩니다. 탈퇴하시겠습니까?", preferredStyle: .alert)
+        //버튼
+        let confirm = UIAlertAction(title: "확인", style: .default){[weak self] _ in
+            guard let self = self else { return }
+            
+            self.deleteAllUserData() //저장해놓은 데이터 모두 삭제
+            self.changeRootView() ///루트뷰 변경
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        //액션 버튼 붙이기
+        altert.addAction(confirm)
+        altert.addAction(cancel)
+        //얼럿 띄워주기
+        present(altert, animated: true)
+        
+        
     }
-}
+    
+    private func deleteAllUserData() {
+        UserDefaults.standard.profileImageName = nil
+        UserDefaults.standard.nickname = nil
+        UserDefaults.standard.searchList = nil
+        UserDefaults.standard.likeItemIdList = nil
+    }
 
-//프로필 영역의 부모뷰인 뷰를 만들고
-//거기다가 tapGesture 추가해서 프로필 수정 페이지로 넘어갈 수 있도록
+}
 
 
