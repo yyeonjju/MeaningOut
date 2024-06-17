@@ -24,6 +24,12 @@ final class SettingsViewController: UIViewController {
         setupDelegate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupUIData()
+    }
+    
     // MARK: - SetupDelegate
     private func setupDelegate() {
         viewManager.settingsTableView.dataSource = self
@@ -31,10 +37,16 @@ final class SettingsViewController: UIViewController {
         viewManager.settingsTableView.register(CustomTrailingLabelTableViewCell.self, forCellReuseIdentifier: CustomTrailingLabelTableViewCell.identifier)
     }
     
-    // MARK: - AddTarget
-    // MARK: - EventSelector
     // MARK: - SetupUI
-    // MARK: - APIFetch
+    private func setupUIData() {
+        viewManager.settingsTableView.reloadData()
+        
+        let profileImageName = UserDefaults.standard.profileImageName ?? ""
+        let nickname = UserDefaults.standard.nickname
+        viewManager.profileCircleView.imageView.image = UIImage(named: profileImageName)
+        viewManager.nicknameLabel.text = nickname
+    }
+    
     // MARK: - PageTransition
     private func changeRootView() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate

@@ -140,37 +140,21 @@ enum SettingOptions : String, CaseIterable {
     case pushSetting = "알림 설정"
     case userWithdrawal = "탈퇴하기"
     
-    func trailingDetailView(likeCount : Int) -> UIView {
+    var trailingImage : UIImage? {
         switch self {
         case .likeList:
-            let view = UIView()
-            let label = UILabel()
-            label.text = "\(likeCount)개의 상품"
-            label.font = Font.regular13
-            label.boldSpecificText(searchText: "\(likeCount)개", font: Font.bold15)
-            let imageView = UIImageView()
-            imageView.image = AssetImage.likeSelected!.withRenderingMode(.alwaysTemplate)
-            imageView.tintColor = Color.black
-            view.addSubview(imageView)
-            view.addSubview(label)
-            imageView.snp.makeConstraints { make in
-                make.size.equalTo(20)
-                make.trailing.equalTo(label.snp.leading).offset(-4)
-                make.centerY.equalToSuperview()
-            }
-            label.snp.makeConstraints { make in
-                make.centerY.trailing.equalToSuperview()
-            }
-            
-            return view
-        case .fAQ:
-            return UIView()
-        case .inquiry:
-            return UIView()
-        case .pushSetting:
-            return UIView()
-        case .userWithdrawal:
-            return UIView()
+            return AssetImage.likeSelected
+        case .fAQ, .inquiry, .pushSetting, .userWithdrawal:
+            return nil
+        }
+    }
+    
+    func trailingLabelText(likeAmount : Int) -> String? {
+        switch self {
+        case .likeList:
+            return "\(likeAmount)개의 상품"
+        case .fAQ, .inquiry, .pushSetting, .userWithdrawal:
+            return nil
         }
     }
     

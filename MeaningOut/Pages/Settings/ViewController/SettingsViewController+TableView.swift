@@ -15,11 +15,13 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CustomTrailingLabelTableViewCell.identifier) as! CustomTrailingLabelTableViewCell
         let rowData = SettingOptions.allCases[indexPath.row]
-        let likeAmount = UserDefaults.standard.likeItemIdList?.count
         cell.textLabel?.text = rowData.rawValue
-        cell.trailingView = rowData.trailingDetailView(likeCount: likeAmount ?? 0)
+        cell.configureTrailingView(option: rowData)
+        
         if indexPath.row <= 3 {
             cell.selectionStyle = .none
+        } else {
+            cell.selectionStyle = .default
         }
         return cell
     }

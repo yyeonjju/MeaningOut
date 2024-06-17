@@ -9,14 +9,23 @@ import UIKit
 
 class CustomTrailingLabelTableViewCell : UITableViewCell{
     
-    var trailingView : UIView?
+    var trailingView : UIView = {
+        let view = UIView()
+        
+        return view
+    }()
     
-    // MARK: - Lifecycle
+    let trailingLabel : UILabel = {
+        let label = UILabel()
+        label.font = Font.regular13
+        return label
+    }()
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        configureLayout()
-    }
+    let trailingImageView : UIImageView = {
+        let iv = UIImageView()
+        iv.tintColor = Color.black
+        return iv
+    }()
 
     
     // MARK: - Initializer
@@ -37,19 +46,45 @@ class CustomTrailingLabelTableViewCell : UITableViewCell{
     private func configureUI() {
         textLabel?.font = Font.regular14
     }
-    private func configureLayout(){
-        guard let trailingView, let textLabel else {return }
-        
-        contentView.addSubview(trailingView)
     
+    private func configureLayout(){
+        guard let textLabel else {return }
         //superView에 있는 textLabel도 leading에 딱 맞춰주기
         textLabel.snp.makeConstraints { make in
             make.centerY.leading.equalTo(contentView)
         }
         
+        contentView.addSubview(trailingView)
+        [trailingImageView, trailingLabel]
+            .forEach{
+                trailingView.addSubview($0)
+            }
+        
+
         trailingView.snp.makeConstraints { make in
             make.leading.equalTo(textLabel.snp.trailing)
             make.trailing.verticalEdges.equalTo(contentView)
         }
+        
+        trailingImageView.snp.makeConstraints { make in
+            make.size.equalTo(20)
+            make.trailing.equalTo(trailingLabel.snp.leading).offset(-4)
+            make.centerY.equalToSuperview()
+        }
+        trailingLabel.snp.makeConstraints { make in
+            make.centerY.trailing.equalToSuperview()
+        }
+    }
+    
+    func configureTrailingView(option : SettingOptions) {
+        
+        let likeAmount = UserDefaults.standard.likeItemIdList?.count ?? 0
+        
+        trailingImageView.image = option.trailingImage?.withRenderingMode(.alwaysTemplate)
+        trailingLabel.text = option.trailingLabelText(likeAmount: likeAmount)
+        if option == .likeList {
+            trailingLabel.boldSpecificText(searchText: "\(likeAmount)개", font: Font.bold15)
+        }
+
     }
 }
