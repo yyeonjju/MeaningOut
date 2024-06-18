@@ -30,6 +30,11 @@ enum PageTitle {
     static let Settings = "Settings"
 }
 
+enum ToastMessage {
+    static let checkNickname = "조건에 맞는 닉네임을 입력해주세요"
+    static let signupComplete = "가입이 완료되었습니다"
+}
+
 enum Font {
     static let regular13 = UIFont.systemFont(ofSize: 13)
     static let regular14 = UIFont.systemFont(ofSize: 14)

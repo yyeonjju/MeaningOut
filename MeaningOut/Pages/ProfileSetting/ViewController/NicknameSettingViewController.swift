@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 class NicknameSettingViewController: UIViewController {
     
@@ -71,7 +72,7 @@ class NicknameSettingViewController: UIViewController {
                 if self.pageMode == .onboarding {
                     ///루트뷰 변경
                     let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-                    sceneDelegate?.changeRootViewControllerToSearchHome()
+                    sceneDelegate?.changeRootViewControllerToSearchHome(isFirstRendered: true)
                 }else {
                     ///pop 뷰컨트롤러
                     self.navigationController?.popViewController(animated: true)
@@ -85,6 +86,8 @@ class NicknameSettingViewController: UIViewController {
                     UserDefaults.standard.signupDate = Date()
                 }
             }
+        }else {
+            self.view.makeToast(ToastMessage.checkNickname, duration: 2.0, position: .top)
         }
 
     }

@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Toast
 
 final class SearchHomeViewController: UIViewController {
     // MARK: - UI
     let viewManager = SearchHomeView()
+    var isFirstRendered = false
     
     // MARK: - Properties
     var recentSearchList : [String] = [] {
@@ -41,7 +43,9 @@ final class SearchHomeViewController: UIViewController {
         setupDelegate()
         setupAddTarget()
         hideKeyboardWhenTappedAround()
-
+        if isFirstRendered {
+            toastSignupComplete()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,6 +100,15 @@ final class SearchHomeViewController: UIViewController {
         }
         recentSearchList.insert(keyword, at: 0)
     }
+    
+    // MARK: - Toast
+    private func toastSignupComplete() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else {return}
+            view.makeToast(ToastMessage.signupComplete, duration: 3.0, position: .top)
+        }
+    }
+
 }
 
 extension SearchHomeViewController : UISearchBarDelegate {

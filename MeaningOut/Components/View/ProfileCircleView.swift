@@ -13,7 +13,7 @@ final class ProfileCircleView : UIView {
     private let imageContentView : UIView = {
         let view = UIView()
         view.layer.borderColor = Color.mainOrange?.cgColor
-        view.layer.borderWidth = 5
+        view.layer.borderWidth = 3
         view.clipsToBounds = true
         return view
     }()
@@ -113,9 +113,11 @@ final class ProfileCircleView : UIView {
     func configureSelectedUI(isSelected : Bool){
         if isSelected {
             imageContentView.layer.borderColor = Color.mainOrange?.cgColor
+            imageContentView.layer.borderWidth = 3
             imageContentView.alpha = 1
         } else {
             imageContentView.layer.borderColor = Color.gray3?.cgColor
+            imageContentView.layer.borderWidth = 1
             imageContentView.alpha = 0.5
             
         }

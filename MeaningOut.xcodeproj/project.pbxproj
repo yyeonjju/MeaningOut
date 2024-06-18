@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D13E3182C216D3B006307C7 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 7D13E3172C216D3B006307C7 /* Toast */; };
 		7D2232E22C2064B50047B1CE /* EditNicknameSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2232E12C2064B50047B1CE /* EditNicknameSettingViewController.swift */; };
 		7D2232E62C2079010047B1CE /* DateFormatter++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2232E52C2079010047B1CE /* DateFormatter++.swift */; };
 		7D2232ED2C215A070047B1CE /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2232EC2C215A070047B1CE /* String++.swift */; };
@@ -128,6 +129,7 @@
 				7D893BAE2C1B2579003D552E /* Alamofire in Frameworks */,
 				7D893BB12C1B258F003D552E /* IQKeyboardManagerSwift in Frameworks */,
 				7D893BAB2C1B256D003D552E /* Kingfisher in Frameworks */,
+				7D13E3182C216D3B006307C7 /* Toast in Frameworks */,
 				7D893BA82C1B2562003D552E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +521,7 @@
 				7D893BAA2C1B256D003D552E /* Kingfisher */,
 				7D893BAD2C1B2579003D552E /* Alamofire */,
 				7D893BB02C1B258F003D552E /* IQKeyboardManagerSwift */,
+				7D13E3172C216D3B006307C7 /* Toast */,
 			);
 			productName = MeaningOut;
 			productReference = 7D893B7A2C1B1C42003D552E /* MeaningOut.app */;
@@ -553,6 +556,7 @@
 				7D893BA92C1B256D003D552E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				7D893BAC2C1B2579003D552E /* XCRemoteSwiftPackageReference "Alamofire" */,
 				7D893BAF2C1B258F003D552E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				7D13E3162C216D3A006307C7 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 7D893B7B2C1B1C42003D552E /* Products */;
 			projectDirPath = "";
@@ -706,7 +710,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -763,7 +767,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -865,6 +869,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7D13E3162C216D3A006307C7 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
 		7D893BA62C1B2562003D552E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -900,6 +912,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7D13E3172C216D3B006307C7 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D13E3162C216D3A006307C7 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
 		7D893BA72C1B2562003D552E /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7D893BA62C1B2562003D552E /* XCRemoteSwiftPackageReference "SnapKit" */;

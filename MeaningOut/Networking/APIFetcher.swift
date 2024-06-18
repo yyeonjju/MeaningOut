@@ -25,10 +25,10 @@ class APIFetcher {
             .responseDecodable(of: T.self) {response in
                 switch response.result {
                 case .success(let value) :
-//                    print("success❤️", value)
+//                    print("success", value)
                     completionHandler(value)
                 case .failure(let error) :
-                    print("error💚", error)
+//                    print("error", error)
                     errorHandler()
                 }
             }

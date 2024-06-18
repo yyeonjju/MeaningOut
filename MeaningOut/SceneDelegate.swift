@@ -58,13 +58,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - Change Root View
     
     /// SearchHomeViewController로 루트뷰를 변경합니다.
-    func changeRootViewControllerToSearchHome() {
+    func changeRootViewControllerToSearchHome(isFirstRendered : Bool = false) {
         
         guard let window = self.window else { return }
         
         //네비게이션 컨트롤러 생성
-        let searchHomeVC = UINavigationController(rootViewController: SearchHomeViewController())
-        let settingsVC = UINavigationController(rootViewController: SettingsViewController())
+        let SearchHomeVC = SearchHomeViewController()
+        SearchHomeVC.isFirstRendered = isFirstRendered
+        let searchHomeNav = UINavigationController(rootViewController: SearchHomeVC)
+        let settingsNav = UINavigationController(rootViewController: SettingsViewController())
 
         //탭바 컨트롤러 생성
         let tabBarVC = UITabBarController()
@@ -72,7 +74,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.tabBar.unselectedItemTintColor = Color.gray3
         
         // 탭바로 사용하기 위한 뷰 컨트롤러들 설정
-        tabBarVC.setViewControllers([searchHomeVC, settingsVC], animated: true)
+        tabBarVC.setViewControllers([searchHomeNav, settingsNav], animated: true)
         tabBarVC.modalPresentationStyle = .fullScreen
         
         // 탭바 이름/이미지 설정 (이미지는 애플이 제공하는 것으로 사용)
