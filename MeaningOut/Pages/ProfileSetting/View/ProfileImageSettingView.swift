@@ -18,7 +18,8 @@ class ProfileImageSettingView: UIView {
     }()
     
     lazy var profileImageCollectionView : UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionVewLayout())
+        let cv = UICollectionView(frame: .zero, collectionViewLayout:  configureCollectionVewLayout(numberofItemInrow: 4))
+       
         return cv
     }()
     
@@ -57,27 +58,6 @@ class ProfileImageSettingView: UIView {
             make.top.equalTo(profileCircleView.snp.bottom).offset(30)
             make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide)
         }
-    }
-    
-
-    
-    private func configureCollectionVewLayout () -> UICollectionViewLayout{
-        let layout = UICollectionViewFlowLayout()
-        let numberofItemInrow : CGFloat = 4
-        
-        let cellIneterSpacing : CGFloat = 10
-        let sectionSpacing : CGFloat = 30
-        let inset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
-        let availableWidth = UIScreen.main.bounds.width - (cellIneterSpacing*numberofItemInrow) - inset.left - inset.right
-        
-        
-        layout.itemSize = CGSize(width: availableWidth/numberofItemInrow, height: availableWidth/numberofItemInrow)
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = cellIneterSpacing
-        layout.sectionInset = inset
-        
-        return layout
     }
 
 

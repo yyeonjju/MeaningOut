@@ -40,6 +40,7 @@ final class SearchHomeViewController: UIViewController {
         setupRecentSearchList()
         setupDelegate()
         setupAddTarget()
+        hideKeyboardWhenTappedAround()
 
     }
     

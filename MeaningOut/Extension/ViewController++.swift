@@ -23,4 +23,16 @@ extension UIViewController {
     @objc private func popToPrevPage() {
         navigationController?.popViewController(animated: true)
     }
+    
+    // MARK: - HideKeyboard
+
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
