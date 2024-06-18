@@ -14,7 +14,7 @@ final class SearchHomeViewController: UIViewController {
     // MARK: - Properties
     var recentSearchList : [String] = [] {
         didSet {
-            print("❤️❤️❤️recentSearchList -- didSet", recentSearchList)
+            print("recentSearchList -- didSet", recentSearchList)
             //요소 하나도 없으면 isEmpty 빈 화면
             viewManager.emptyView.isHidden = !recentSearchList.isEmpty
             

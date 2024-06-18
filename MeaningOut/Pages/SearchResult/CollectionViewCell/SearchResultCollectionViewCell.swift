@@ -76,11 +76,12 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     
     // MARK: - ConfigureData
 
-    func configureData(data : SearchResultItem, isLike : Bool) {
+    func configureData(data : SearchResultItem, isLike : Bool, searchKeyword : String?) {
         let url = URL(string: data.image)
         productImageView.kf.setImage(with: url)
         mallNamelLabel.text = data.mallName
-        productNamelLabel.text = data.title
+        productNamelLabel.text = data.titleWithoutHtmlTag
+        productNamelLabel.tintSpecificTextColor(searchText: searchKeyword)
         pricelLabel.text = data.priceText
         
         if isLike {
@@ -103,10 +104,6 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
             .forEach{
                 contentView.addSubview($0)
             }
-//        [likeButton]
-//            .forEach{
-//                productImageView.addSubview($0)
-//            }
     }
     
     func configureLayout() {
@@ -115,11 +112,6 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
             make.top.horizontalEdges.equalTo(contentView)
             make.height.equalTo(250)
         }
-        
-//        likeButton.snp.makeConstraints { make in
-//            make.trailing.bottom.equalToSuperview().inset(10)
-//            make.size.equalTo(30)
-//        }
         
         
         likeButton.snp.makeConstraints { make in

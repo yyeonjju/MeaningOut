@@ -18,7 +18,6 @@ extension UILabel {
     /*
     //UILabel에 아이콘 넣기
     func attachIcon(image : UIImage, direction:IconDirection, text : String, font: UIFont){
-        print("🌸attachIcon🌸")
         //NSAttributedString 형태로 이미지 만들기
         let attachment = NSTextAttachment()
         attachment.image = image
@@ -55,6 +54,22 @@ extension UILabel {
             
             while let range = labelText.range(of: searchText, options: NSString.CompareOptions.caseInsensitive, range: searchRange) {
                 text.addAttribute(NSAttributedString.Key.font, value: font, range: NSRange(range, in: labelText))
+                searchRange = range.upperBound..<searchRange.upperBound
+            }
+            
+            self.attributedText = text
+        }
+        
+    }
+    
+    func tintSpecificTextColor (searchText : String?) {
+        guard let searchText else {return }
+        
+        if let labelText = self.text {
+            let text = NSMutableAttributedString(string: labelText)
+            var searchRange = labelText.startIndex..<labelText.endIndex
+            while let range = labelText.range(of: searchText, options: NSString.CompareOptions.caseInsensitive, range: searchRange) {
+                text.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(range, in: labelText))
                 searchRange = range.upperBound..<searchRange.upperBound
             }
             

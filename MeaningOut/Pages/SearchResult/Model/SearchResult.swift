@@ -23,4 +23,8 @@ struct SearchResultItem: Codable {
     var priceText : String {
         get{ return (Int(lprice) ?? 0).formatted() + " 원" }
     }
+    
+    var titleWithoutHtmlTag : String {
+        get{return title.withoutHtmlTags}
+    }
 }

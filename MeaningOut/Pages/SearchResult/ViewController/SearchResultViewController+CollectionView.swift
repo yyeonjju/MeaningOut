@@ -17,8 +17,8 @@ extension SearchResultViewController : UICollectionViewDelegate, UICollectionVie
         guard let searchResult else {return cell}
         let itemData = searchResult.items[indexPath.row]
         let isLike = likeItemIdList.contains(itemData.productId)
-        
-        cell.configureData(data: itemData, isLike: isLike)
+    
+        cell.configureData(data: itemData, isLike: isLike, searchKeyword: navigationItem.title)
         cell.manageLikeItemIdList = {[weak self] _ in
             guard let self else { return }
             if isLike { ///좋아요가 되어 있는 상태에서 한번 더 눌렀으면 좋아요 리스트에서 삭제
@@ -41,7 +41,7 @@ extension SearchResultViewController : UICollectionViewDelegate, UICollectionVie
         guard let searchResult else {return }
         let itemData = searchResult.items[indexPath.row]
         let isLiked = likeItemIdList.contains(itemData.productId)
-        pushToItemDetailPage(itemTitle:itemData.title, itemLink: itemData.link, isLiked : isLiked, itemId: itemData.productId)
+        pushToItemDetailPage(itemTitle:itemData.titleWithoutHtmlTag, itemLink: itemData.link, isLiked : isLiked, itemId: itemData.productId)
         
     }
 }
@@ -49,7 +49,6 @@ extension SearchResultViewController : UICollectionViewDelegate, UICollectionVie
 
 extension SearchResultViewController : UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        print(#function, indexPaths)
         guard let searchResult else {return}
         
         for item in indexPaths {
