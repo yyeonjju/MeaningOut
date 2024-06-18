@@ -26,3 +26,7 @@ internal func configureCollectionVewLayout (numberofItemInrow : Int, cellIneterS
     
     return layout
 }
+
+internal func isOnlyWhitespace(_ text: String) -> Bool {
+    return text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+}

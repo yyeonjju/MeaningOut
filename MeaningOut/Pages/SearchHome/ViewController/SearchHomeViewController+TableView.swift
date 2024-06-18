@@ -26,6 +26,10 @@ extension SearchHomeViewController : UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedKeyword = recentSearchList[indexPath.row]
-        pushToSearchResultPage(searchKeyword: selectedKeyword)
+        
+        if !isOnlyWhitespace(selectedKeyword) {
+            insertKeywordInSearchList(keyword: selectedKeyword)
+            pushToSearchResultPage(searchKeyword: selectedKeyword)
+        }
     }
 }

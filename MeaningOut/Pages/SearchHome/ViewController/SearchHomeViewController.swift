@@ -88,12 +88,23 @@ final class SearchHomeViewController: UIViewController {
 
     }
     
+    func insertKeywordInSearchList(keyword : String){
+        if let index = recentSearchList.firstIndex(where: { $0 == keyword }) {
+            //중복된 검색어면
+            recentSearchList.remove(at: index)
+        }
+        recentSearchList.insert(keyword, at: 0)
+    }
 }
 
 extension SearchHomeViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        recentSearchList.insert(searchBar.text ?? "---", at: 0)
+        guard let text = searchBar.text else {return }
         
-        pushToSearchResultPage(searchKeyword : searchBar.text ?? "")
+        if !isOnlyWhitespace(text) {
+            insertKeywordInSearchList(keyword: text)
+            pushToSearchResultPage(searchKeyword : text)
+        }
+
     }
 }
