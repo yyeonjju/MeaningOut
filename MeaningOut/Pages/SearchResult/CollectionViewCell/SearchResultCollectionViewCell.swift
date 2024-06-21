@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Kingfisher
 
 class SearchResultCollectionViewCell: UICollectionViewCell {
     var manageLikeItemIdList : ((SearchResultCollectionViewCell)-> Void) = {_ in }
@@ -77,8 +76,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     // MARK: - ConfigureData
 
     func configureData(data : SearchResultItem, isLike : Bool, searchKeyword : String?) {
-        let url = URL(string: data.image)
-        productImageView.kf.setImage(with: url)
+        productImageView.setImageDataFromUrlString(url: data.image)
         mallNamelLabel.text = data.mallName
         productNamelLabel.text = data.titleWithoutHtmlTag
         productNamelLabel.tintSpecificTextColor(searchText: searchKeyword)

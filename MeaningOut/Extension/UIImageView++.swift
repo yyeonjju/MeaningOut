@@ -19,4 +19,20 @@ extension UIImageView {
         self.layer.cornerRadius = self.frame.width/2
         self.contentMode = .scaleAspectFill
     }
+    
+    func setImageDataFromUrlString(url:String) {
+        guard let url = URL(string: url) else {return }
+        
+        DispatchQueue.global().async {
+            do{
+                let data = try Data(contentsOf: url)
+                DispatchQueue.main.async {
+                    self.image = UIImage(data: data)
+                }
+            } catch {
+                print(error)
+            }
+        }
+        
+    }
 }

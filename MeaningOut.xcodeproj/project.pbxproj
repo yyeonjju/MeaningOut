@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D13E3182C216D3B006307C7 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 7D13E3172C216D3B006307C7 /* Toast */; };
+		7D170BCA2C25B4820003DB95 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D170BC92C25B4820003DB95 /* Error.swift */; };
 		7D2232E22C2064B50047B1CE /* EditNicknameSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2232E12C2064B50047B1CE /* EditNicknameSettingViewController.swift */; };
 		7D2232E62C2079010047B1CE /* DateFormatter++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2232E52C2079010047B1CE /* DateFormatter++.swift */; };
 		7D2232ED2C215A070047B1CE /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2232EC2C215A070047B1CE /* String++.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D170BC92C25B4820003DB95 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		7D2232E12C2064B50047B1CE /* EditNicknameSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknameSettingViewController.swift; sourceTree = "<group>"; };
 		7D2232E52C2079010047B1CE /* DateFormatter++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter++.swift"; sourceTree = "<group>"; };
 		7D2232EC2C215A070047B1CE /* String++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
@@ -137,6 +139,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D170BC82C25B46D0003DB95 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7D170BC92C25B4820003DB95 /* Error.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		7D24F89C2C1F11A6002D769C /* ItemDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +271,7 @@
 		7D893B9A2C1B1FD4003D552E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7D170BC82C25B46D0003DB95 /* Error */,
 				7D893B9B2C1B1FDA003D552E /* File */,
 			);
 			path = Common;
@@ -623,6 +634,7 @@
 				7D893BA32C1B2498003D552E /* OnboardingViewController.swift in Sources */,
 				7DA96C262C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift in Sources */,
 				7D893BA52C1B24BF003D552E /* OnboardingView.swift in Sources */,
+				7D170BCA2C25B4820003DB95 /* Error.swift in Sources */,
 				7DA96C132C1C543F0007FBFC /* NormalTextFieldView.swift in Sources */,
 				7D30E5442C1ECB200073DBDA /* SearchResultViewController+CollectionView.swift in Sources */,
 				7D893B992C1B1DFF003D552E /* APIURL.swift in Sources */,
