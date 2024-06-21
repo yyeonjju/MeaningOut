@@ -76,7 +76,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     // MARK: - ConfigureData
 
     func configureData(data : SearchResultItem, isLike : Bool, searchKeyword : String?) {
-        productImageView.setImageDataFromUrlString(url: data.image)
+        productImageView.setImageDataFromUrlString(urlString: data.image)
         mallNamelLabel.text = data.mallName
         productNamelLabel.text = data.titleWithoutHtmlTag
         productNamelLabel.tintSpecificTextColor(searchText: searchKeyword)

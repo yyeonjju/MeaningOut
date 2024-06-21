@@ -20,19 +20,12 @@ extension UIImageView {
         self.contentMode = .scaleAspectFill
     }
     
-    func setImageDataFromUrlString(url:String) {
-        guard let url = URL(string: url) else {return }
-        
-        DispatchQueue.global().async {
-            do{
-                let data = try Data(contentsOf: url)
-                DispatchQueue.main.async {
-                    self.image = UIImage(data: data)
-                }
-            } catch {
-                print(error)
+    func setImageDataFromUrlString(urlString: String) {
+        ImageLoadManager.shared.downloadImage(urlString: urlString) { data in
+            DispatchQueue.main.async() { [weak self] in
+                guard let self else {return}
+                self.image = UIImage(data: data)
             }
         }
-        
     }
 }
