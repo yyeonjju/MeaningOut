@@ -10,6 +10,15 @@ import SnapKit
 
 internal let AppName = "MeaningOut"
 
+enum NicknameValidation {
+    static let invalidSpecialCharaters = ["@", "#", "$", "%"]
+    static let textMinCount = 2
+    static let textMaxCount = 9
+    
+    //+ 숫자 입력 불가
+    
+}
+
 
 enum PageMode {
     case onboarding
@@ -95,7 +104,7 @@ enum AssetImage {
     static let likeUnselected = UIImage(named: "like_unselected")
 }
 
-enum TextFieldValidationText {
+enum NicknameValidationNoticeText {
     static let validNickname = "사용할 수 있는 닉네임이에요"
     
     static let invalidCount = "2글자 이상 10글자 미만으로 작성해주세요"

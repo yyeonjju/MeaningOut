@@ -111,27 +111,26 @@ class NicknameSettingViewController: UIViewController {
     }
     
     // MARK: - Method
-    private func validateNicknameCount() {
-        var noticeText = ""
-        guard let text = viewManager.nicknameTextFieldView.textField.text else {return }
-        
-        if (text.count) < textFieldMinCount {
-            noticeText = TextFieldValidationText.invalidCount
-        }
-        
-        if (text.count) > textFieldMaxCount {
-            noticeText = TextFieldValidationText.invalidCount
-            viewManager.nicknameTextFieldView.textField.text = String(text.dropLast())
-        }
-        
-        changeWarningLabel(noticeText)
 
+    private func validateNicknameCount() {
+        do {
+            try validateNicknameInputCount(textField: viewManager.nicknameTextFieldView.textField)
+        } catch (let nicknammeError as NicknameInputError) {
+            print("validateNicknameInputCharacter error", nicknammeError)
+            DispatchQueue.main.async {
+                self.changeWarningLabel(nicknammeError.validationNoticeText())
+            }
+        }catch {
+            print(error)
+        }
+        
+        changeWarningLabel()
     }
     
-    func changeWarningLabel(_ noticeText : String) {
+    func changeWarningLabel(_ noticeText : String = "") {
         let targetLabel = viewManager.nicknameTextFieldView.warningLabel
         if noticeText.isEmpty {
-            targetLabel.text = TextFieldValidationText.validNickname
+            targetLabel.text = NicknameValidationNoticeText.validNickname
             targetLabel.textColor = Color.gray2
             targetLabel.alpha = 1
         }else {
