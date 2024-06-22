@@ -23,6 +23,7 @@
 		7D30E5422C1ECAED0073DBDA /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30E5412C1ECAED0073DBDA /* SearchResultCollectionViewCell.swift */; };
 		7D30E5442C1ECB200073DBDA /* SearchResultViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30E5432C1ECB200073DBDA /* SearchResultViewController+CollectionView.swift */; };
 		7D7634352C25D80F00319D37 /* ImageLoadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7634342C25D80F00319D37 /* ImageLoadManager.swift */; };
+		7D7634372C26F89C00319D37 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7634362C26F89C00319D37 /* ImageCacheManager.swift */; };
 		7D893B7E2C1B1C42003D552E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D893B7D2C1B1C42003D552E /* AppDelegate.swift */; };
 		7D893B802C1B1C42003D552E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D893B7F2C1B1C42003D552E /* SceneDelegate.swift */; };
 		7D893B822C1B1C42003D552E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D893B812C1B1C42003D552E /* ViewController.swift */; };
@@ -83,6 +84,7 @@
 		7D30E5412C1ECAED0073DBDA /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		7D30E5432C1ECB200073DBDA /* SearchResultViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResultViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		7D7634342C25D80F00319D37 /* ImageLoadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadManager.swift; sourceTree = "<group>"; };
+		7D7634362C26F89C00319D37 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		7D893B7A2C1B1C42003D552E /* MeaningOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeaningOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D893B7D2C1B1C42003D552E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D893B7F2C1B1C42003D552E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			children = (
 				7D893B9C2C1B1FEA003D552E /* NameSpace.swift */,
 				7DA96C1A2C1C9F1B0007FBFC /* utilFunc.swift */,
+				7D7634362C26F89C00319D37 /* ImageCacheManager.swift */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				7DA96C212C1CA70D0007FBFC /* ProfileImageSettingView.swift in Sources */,
 				7DA96C302C1DC5DE0007FBFC /* SearchHomeViewController+TableView.swift in Sources */,
 				7DA96C292C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift in Sources */,
+				7D7634372C26F89C00319D37 /* ImageCacheManager.swift in Sources */,
 				7D893BBB2C1B2DBA003D552E /* MainOrangeButton.swift in Sources */,
 				7D2232E62C2079010047B1CE /* DateFormatter++.swift in Sources */,
 				7D893B9D2C1B1FEA003D552E /* NameSpace.swift in Sources */,
