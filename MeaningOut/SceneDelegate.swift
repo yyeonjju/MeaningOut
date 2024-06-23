@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
         
-        if UserDefaults.standard.nickname == nil {
+        if UserDefaults.standard.getNickname() == nil {
             changeRootViewControllerToOnboarding()
         } else {
             changeRootViewControllerToSearchHome()

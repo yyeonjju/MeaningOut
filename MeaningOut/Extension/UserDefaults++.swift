@@ -8,29 +8,87 @@
 import UIKit
 
 extension UserDefaults {
-    var profileImageName: String? {
+    private var profileImageName: String? {
         get { UserDefaults.standard.string(forKey: "profileImageName")}
         set { UserDefaults.standard.set(newValue, forKey: "profileImageName") }
     }
     
-    var nickname: String? {
+    private var nickname: String? {
         get { UserDefaults.standard.string(forKey: "nickname")}
         set { UserDefaults.standard.set(newValue, forKey: "nickname") }
     }
     
-    var signupDate: Date? {
+    private var signupDate: Date? {
         get { UserDefaults.standard.object(forKey: "signupDate") as! Date?}
         set { UserDefaults.standard.set(newValue, forKey: "signupDate") }
     }
     
     
-    var searchList : [String]? {
+    private var searchList : [String]? {
         get { UserDefaults.standard.array(forKey: "searchList") as? [String]}
         set { UserDefaults.standard.set(newValue, forKey: "searchList") }
     }
     
-    var likeItemIdList : [String]? {
+    private var likeItemIdList : [String]? {
         get { UserDefaults.standard.array(forKey: "likeItemIdList") as? [String]}
         set { UserDefaults.standard.set(newValue, forKey: "likeItemIdList") }
     }
+    
+    
+    //profileImageName
+    func saveProfileImageName(_ profileImageName : String?) {
+        self.profileImageName = profileImageName
+    }
+    func getProfileImageName() -> String? {
+        return self.profileImageName
+    }
+    
+    //nickname
+    func saveNickname(_ nickname : String?) {
+        self.nickname = nickname
+    }
+    func getNickname() -> String? {
+        return self.nickname
+    }
+    
+    
+    //signupDate
+    func saveSignupDate(_ signupDate : Date?) {
+        self.signupDate = signupDate
+    }
+    func getSignupDate() -> Date {
+        return signupDate ?? Date()
+    }
+    
+    
+    //searchList
+    func saveSearchList(_ searchList : [String]?) {
+        self.searchList = searchList
+    }
+    func getSearchList() -> [String]? {
+        return searchList
+    }
+    
+    
+    //likeItemIdList
+    func saveLikeItemIdList(_ likeItemIdList : [String]?) {
+        self.likeItemIdList = likeItemIdList
+    }
+    func getLikeItemIdList() -> [String]? {
+        return likeItemIdList
+    }
+    
+    
+    
+    //removeAllUserData
+    func removeAllUserData() {
+        saveProfileImageName(nil)
+        saveNickname(nil)
+        saveSignupDate(nil)
+        saveSearchList(nil)
+        saveLikeItemIdList(nil)
+    }
+    
+    
+    
 }

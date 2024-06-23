@@ -79,11 +79,11 @@ class NicknameSettingViewController: UIViewController {
                 }
                 
                 ///UserDefaults에 닉네임 저장
-                UserDefaults.standard.nickname = self.viewManager.nicknameTextFieldView.textField.text
+                UserDefaults.standard.saveNickname(self.viewManager.nicknameTextFieldView.textField.text)
                 
                 if self.pageMode == .onboarding{
                     ///UserDefaults에 날짜 저장
-                    UserDefaults.standard.signupDate = Date()
+                    UserDefaults.standard.saveSignupDate(Date())
                 }
             }
         }else {
@@ -104,7 +104,7 @@ class NicknameSettingViewController: UIViewController {
     private func pushToNextPage() {
         let nextVC = ProfileImageSettingViewController()
         nextVC.pageMode = self.pageMode
-        let savedImageName = UserDefaults.standard.profileImageName
+        let savedImageName = UserDefaults.standard.getProfileImageName()
         
         nextVC.profileImageName = savedImageName
         navigationController?.pushViewController(nextVC, animated: true)
@@ -161,13 +161,13 @@ class NicknameSettingViewController: UIViewController {
     
     private func setupRandomProfileImageName() {
         let profileImageName = ProfileImageName.returnRandomProfileImageName()
-        UserDefaults.standard.profileImageName = profileImageName
+        UserDefaults.standard.saveProfileImageName(profileImageName)
         
         configureProfileImage()
     }
     
     private func configureProfileImage() {
-        let savedImageName =  UserDefaults.standard.profileImageName
+        let savedImageName =  UserDefaults.standard.getProfileImageName()
         if let savedImageName {
             viewManager.profileCircleView.imageView.image = UIImage(named: savedImageName)
         }

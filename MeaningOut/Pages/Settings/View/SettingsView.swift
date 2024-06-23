@@ -19,7 +19,7 @@ final class SettingsView: UIView {
 
     let profileCircleView : ProfileCircleView = {
         let view = ProfileCircleView(width: Size.middleProfileImageWidth, isCameraIconShown: false)
-        guard let profileImageName = UserDefaults.standard.profileImageName else {return view}
+        guard let profileImageName = UserDefaults.standard.getProfileImageName() else {return view}
         view.imageView.image = UIImage(named: profileImageName)
         
         return view
@@ -27,7 +27,7 @@ final class SettingsView: UIView {
     
     let nicknameLabel : UILabel = {
         let label = UILabel()
-        label.text = UserDefaults.standard.nickname
+        label.text = UserDefaults.standard.getNickname()
         label.font = Font.bold16
         return label
     }()

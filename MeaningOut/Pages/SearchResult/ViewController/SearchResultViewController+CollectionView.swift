@@ -27,10 +27,10 @@ extension SearchResultViewController : UICollectionViewDelegate, UICollectionVie
                 }
                 guard let index else {return }
                 self.likeItemIdList.remove(at: index)
-                UserDefaults.standard.likeItemIdList = self.likeItemIdList
-            }else { ///좋아요가 안되어 있는 상태에서 눌렀으면 좋아요 리스트에서 삭제
+                UserDefaults.standard.saveLikeItemIdList(self.likeItemIdList)
+            }else { ///좋아요가 안되어 있는 상태에서 눌렀으면 좋아요 리스트에 추가
                 self.likeItemIdList.append(itemData.productId)
-                UserDefaults.standard.likeItemIdList = self.likeItemIdList
+                UserDefaults.standard.saveLikeItemIdList(self.likeItemIdList)
             }
         }
         

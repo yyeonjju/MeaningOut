@@ -13,7 +13,7 @@ final class SearchResultViewController: UIViewController {
     lazy var sortButtonList = viewManager.sortBUttonStackView.arrangedSubviews as! [OutlineBorderButton]
     
     // MARK: - Properties
-    var likeItemIdList = UserDefaults.standard.likeItemIdList ?? [] {
+    var likeItemIdList = UserDefaults.standard.getLikeItemIdList() ?? [] {
         didSet{
             viewManager.searchResultCollectionView.reloadData()
         }
@@ -67,7 +67,7 @@ final class SearchResultViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        likeItemIdList = UserDefaults.standard.likeItemIdList ?? []
+        likeItemIdList = UserDefaults.standard.getLikeItemIdList() ?? []
     }
 
     // MARK: - SetupDelegate

@@ -64,9 +64,9 @@ final class SettingsViewController: UIViewController {
     private func setupUIData() {
         viewManager.settingsTableView.reloadData()
         
-        let profileImageName = UserDefaults.standard.profileImageName ?? ""
-        let nickname = UserDefaults.standard.nickname
-        let signupDate = UserDefaults.standard.signupDate ?? Date()
+        let profileImageName = UserDefaults.standard.getProfileImageName() ?? ""
+        let nickname = UserDefaults.standard.getNickname()
+        let signupDate = UserDefaults.standard.getSignupDate()
         let signupDateString = DateFormatter.yearDotMonthDotDay.string(from: signupDate)
         
         viewManager.profileCircleView.imageView.image = UIImage(named: profileImageName)
@@ -112,10 +112,7 @@ final class SettingsViewController: UIViewController {
     }
     
     private func deleteAllUserData() {
-        UserDefaults.standard.profileImageName = nil
-        UserDefaults.standard.nickname = nil
-        UserDefaults.standard.searchList = nil
-        UserDefaults.standard.likeItemIdList = nil
+        UserDefaults.standard.removeAllUserData()
     }
 
 }

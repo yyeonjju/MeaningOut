@@ -31,7 +31,7 @@ final class EditNicknameSettingViewController : NicknameSettingViewController {
     }
     
     private func setupSavedData() {
-        viewManager.nicknameTextFieldView.textField.text = UserDefaults.standard.nickname
+        viewManager.nicknameTextFieldView.textField.text = UserDefaults.standard.getNickname()
     }
 
 }

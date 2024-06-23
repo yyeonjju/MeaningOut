@@ -21,7 +21,7 @@ final class SearchHomeViewController: UIViewController {
             viewManager.emptyView.isHidden = !recentSearchList.isEmpty
             
             //유저디폴트에 저장
-            UserDefaults.standard.searchList = recentSearchList
+            UserDefaults.standard.saveSearchList(recentSearchList)
             
             //테이블뷰 리로드
             viewManager.recentSearchTableView.reloadData()
@@ -55,7 +55,7 @@ final class SearchHomeViewController: UIViewController {
     
     // MARK: - SetupNavigation
     private func sestupNavigation() {
-        let nickname = UserDefaults.standard.nickname
+        let nickname = UserDefaults.standard.getNickname()
         navigationItem.title = PageTitle.searchMain(nickname: nickname ?? "-")
     }
     
@@ -87,7 +87,7 @@ final class SearchHomeViewController: UIViewController {
     
     // MARK: - Method
     private func setupRecentSearchList() {
-        if let list = UserDefaults.standard.searchList{
+        if let list = UserDefaults.standard.getSearchList(){
             recentSearchList = list
         }
 

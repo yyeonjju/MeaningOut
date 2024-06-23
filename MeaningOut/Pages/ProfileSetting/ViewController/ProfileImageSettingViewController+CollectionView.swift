@@ -17,7 +17,7 @@ extension ProfileImageSettingViewController : UICollectionViewDelegate, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileImageCollectionViewCell.identifier, for: indexPath) as! ProfileImageCollectionViewCell
         
         let cellImageName = ProfileImageName.profileImageNameList[indexPath.row]
-        let selectedImageName = UserDefaults.standard.profileImageName
+        let selectedImageName = UserDefaults.standard.getProfileImageName()
         
         cell.configureData(imageName: cellImageName, isSelected: cellImageName == selectedImageName)
         
@@ -28,7 +28,7 @@ extension ProfileImageSettingViewController : UICollectionViewDelegate, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileImageCollectionViewCell.identifier, for: indexPath) as! ProfileImageCollectionViewCell
         let cellImageName = ProfileImageName.profileImageNameList[indexPath.row]
         self.profileImageName = cellImageName
-        UserDefaults.standard.profileImageName = cellImageName
+        UserDefaults.standard.saveProfileImageName(cellImageName)
     }
     
 }

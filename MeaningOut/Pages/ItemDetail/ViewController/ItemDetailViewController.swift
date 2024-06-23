@@ -79,13 +79,13 @@ final class ItemDetailViewController: UIViewController {
     }
     
     private func manageLikeItemIdListData() {
-        var likeItemIdList = UserDefaults.standard.likeItemIdList ?? []
+        var likeItemIdList = UserDefaults.standard.getLikeItemIdList() ?? []
         
         guard let isLiked, let itemId else {return }
         if isLiked {
             //append
             likeItemIdList.append(itemId)
-            UserDefaults.standard.likeItemIdList = likeItemIdList
+            UserDefaults.standard.saveLikeItemIdList(likeItemIdList)
         }else {
             //remove
             let index = likeItemIdList.firstIndex{
@@ -93,7 +93,7 @@ final class ItemDetailViewController: UIViewController {
             }
             guard let index else {return }
             likeItemIdList.remove(at: index)
-            UserDefaults.standard.likeItemIdList = likeItemIdList
+            UserDefaults.standard.saveLikeItemIdList(likeItemIdList)
         }
     }
 
