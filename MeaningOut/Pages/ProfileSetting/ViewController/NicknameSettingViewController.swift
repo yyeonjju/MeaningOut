@@ -67,7 +67,7 @@ class NicknameSettingViewController: UIViewController {
         guard let textCount = viewManager.nicknameTextFieldView.textField.text?.count else {return }
 
         if textCount >= textFieldMinCount && textCount <= textFieldMaxCount{
-            showConfirmAlert(){
+            showAlert(title: "프로필 세팅을 완료하시겠습니까?", message: nil, style: .alert){
                 
                 if self.pageMode == .onboarding {
                     ///루트뷰 변경
@@ -139,24 +139,6 @@ class NicknameSettingViewController: UIViewController {
             targetLabel.alpha = 1
         }
 
-    }
-    
-    func showConfirmAlert(confirmHandler : @escaping ()->Void){
-        //1. 얼럿 컨트롤러
-        let altert = UIAlertController(title: "프로필 세팅을 완료하시겠습니까?", message: nil, preferredStyle: .alert)
-        
-        //2. 버튼
-        let confirm = UIAlertAction(title: "확인", style: .default){ _ in
-            confirmHandler()
-        }
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        
-        //3. 액션 버튼 붙이기
-        altert.addAction(confirm)
-        altert.addAction(cancel)
-        
-        //4. 얼럿 띄워주기
-        present(altert, animated: true)
     }
     
     private func setupRandomProfileImageName() {
