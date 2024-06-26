@@ -8,6 +8,7 @@
 import Foundation
 
 extension Dictionary {
+    /*
     var queryString: String {
         var output: String = ""
         for (key,value) in self {
@@ -16,4 +17,5 @@ extension Dictionary {
         output = "?\(String(output.dropLast()))"
         return output
     }
+     */
 }

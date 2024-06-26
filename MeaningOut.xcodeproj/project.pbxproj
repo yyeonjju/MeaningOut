@@ -66,6 +66,7 @@
 		7DA96C392C1DEAD30007FBFC /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C382C1DEAD30007FBFC /* SearchResultViewController.swift */; };
 		7DA96C3B2C1DEAEE0007FBFC /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C3A2C1DEAEE0007FBFC /* SearchResultView.swift */; };
 		7DA96C3E2C1DEF6B0007FBFC /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C3D2C1DEF6B0007FBFC /* SearchResult.swift */; };
+		7DA9AC042C2BF37300AE3CE6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9AC032C2BF37300AE3CE6 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,7 @@
 		7DA96C382C1DEAD30007FBFC /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		7DA96C3A2C1DEAEE0007FBFC /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		7DA96C3D2C1DEF6B0007FBFC /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		7DA9AC032C2BF37300AE3CE6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 			children = (
 				7D30E53B2C1DF0C20073DBDA /* APIFetcher.swift */,
 				7D7634342C25D80F00319D37 /* ImageLoadManager.swift */,
+				7DA9AC032C2BF37300AE3CE6 /* NetworkManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 		7D893B7C2C1B1C42003D552E /* MeaningOut */ = {
 			isa = PBXGroup;
 			children = (
+				7D893B952C1B1DDD003D552E /* API */,
 				7D30E53A2C1DF0AF0073DBDA /* Networking */,
 				7DA96C272C1D7E0D0007FBFC /* Protocol */,
 				7D893BBC2C1BE994003D552E /* Resource */,
@@ -253,7 +257,6 @@
 				7D893BB22C1B261D003D552E /* Extension */,
 				7D893B9E2C1B2405003D552E /* Pages */,
 				7D893B9A2C1B1FD4003D552E /* Common */,
-				7D893B952C1B1DDD003D552E /* API */,
 				7D893B7D2C1B1C42003D552E /* AppDelegate.swift */,
 				7D893B7F2C1B1C42003D552E /* SceneDelegate.swift */,
 				7D893B812C1B1C42003D552E /* ViewController.swift */,
@@ -626,6 +629,7 @@
 				7DA96C1B2C1C9F1B0007FBFC /* utilFunc.swift in Sources */,
 				7D24F8D72C200D95002D769C /* CustomTrailingLabelTableViewCell.swift in Sources */,
 				7DA96C052C1BFE660007FBFC /* NicknameSettingViewController.swift in Sources */,
+				7DA9AC042C2BF37300AE3CE6 /* NetworkManager.swift in Sources */,
 				7DA96C172C1C564D0007FBFC /* UITextField++.swift in Sources */,
 				7DA96C0A2C1C07F10007FBFC /* NicknameSettingView.swift in Sources */,
 				7D893BB82C1B292D003D552E /* ViewController++.swift in Sources */,

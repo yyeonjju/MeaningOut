@@ -16,12 +16,17 @@ protocol APIFetchable {
 class APIFetcher {
     func getSingle<T : Decodable>(
         model : T.Type,
-        url : String,
-        headers : HTTPHeaders = [],
+        requestType : NetworkRequest,
         completionHandler : @escaping (T) -> Void,
         errorHandler : @escaping ()->Void = {}
     ) {
-        AF.request(url, method: .get, headers: headers)
+        AF.request(
+            requestType.endpoint,
+            method: requestType.method,
+            parameters: requestType.parameters,
+            encoding : requestType.encoding,
+            headers: requestType.headers
+        )
             .responseDecodable(of: T.self) {response in
                 switch response.result {
                 case .success(let value) :
@@ -39,15 +44,9 @@ class APIFetcher {
 
 extension APIFetcher : APIFetchable{
     func getSearchResult(keyword:String, page:Int, sort:String, displayAmount:Int,  handler: @escaping (SearchResult) -> Void) {
-        let queryParamDictionary = ["query":keyword, "start" : String(page), "display": String(displayAmount), "sort" : sort]
-        let headers : HTTPHeaders = [
-            "X-Naver-Client-Id" : APIKey.naverClientID,
-            "X-Naver-Client-Secret" : APIKey.naverKey
-        ]
+        let requestType = NetworkRequest.searchProduct(query: keyword, start: String(page), display: String(displayAmount), sort: sort)
         
-        print("request url", "\(APIURL.naverShopping)\(queryParamDictionary.queryString)")
-        
-        getSingle(model: SearchResult.self, url: "\(APIURL.naverShopping)\(queryParamDictionary.queryString)", headers: headers){ value in
+        getSingle(model : SearchResult.self, requestType : requestType){ value in
             handler(value)
         }
     }
