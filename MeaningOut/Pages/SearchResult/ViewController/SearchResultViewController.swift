@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 final class SearchResultViewController: UIViewController {
     // MARK: - UI
@@ -109,8 +110,16 @@ final class SearchResultViewController: UIViewController {
     // MARK: - APIFetch
     func getSearchResult() {
         guard let searchKeyword else {return }
-        APIFetcher().getSearchResult(keyword: searchKeyword, page: page, sort: sort, displayAmount: displayAmount){ [weak self] data in
+        APIFetcher().getSearchResult(keyword: searchKeyword, page: page, sort: sort, displayAmount: displayAmount){ [weak self] data, errorMessage in
             guard let self else{return }
+            
+            if let errorMessage {
+                DispatchQueue.main.async {
+                    self.view.makeToast(errorMessage, duration: 3.0, position: .top)
+                }
+            }
+            
+            guard let data else {return }
             if page == 1{ ///처음 데이터 불러올 때 & 정렬 버튼 누를 때
                 self.searchResult = data
                 if !self.searchResult!.items.isEmpty {
