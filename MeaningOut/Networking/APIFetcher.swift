@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol APIFetchable {
     func getSearchResult(keyword:String, page:Int, sort:String, displayAmount:Int, handler : @escaping (SearchResult?, String?)->Void) -> Void
@@ -14,41 +13,73 @@ protocol APIFetchable {
 
 
 class APIFetcher {
-    typealias completionHandler<T:Decodable, E: Error> = (T?, E?, _ errorMessage : String?) -> Void
+    
+    typealias completionHandler<T:Decodable, E: Error> = (T?, E?) -> Void
     
     func getSingle<T : Decodable>(
         model : T.Type,
         requestType : NetworkRequest,
-        completionHandler : @escaping completionHandler<T, Error>
+        completionHandler : @escaping completionHandler<T, RequestError>
     ) {
-        AF.request(
-            requestType.endpoint,
-            method: requestType.method,
-            parameters: requestType.parameters,
-            encoding : requestType.encoding,
-            headers: requestType.headers
-        )
-            .responseDecodable(of: T.self) {response in
+        ///URLComponents
+        guard var component = URLComponents(string: requestType.endpoint) else {return }
+        let queryItemArray = requestType.parameters.map {
+            URLQueryItem(name: $0.key, value: $0.value)
+        }
+        component.queryItems = queryItemArray
+        
+        ///URLRequest
+        guard let url = component.url else {return  completionHandler(nil, .url)}
+        let request = try? URLRequest(url: url, method: requestType.method, headers: requestType.headers)
+
+        guard let request else {return  completionHandler(nil, .urlRequestError) }
+        
+        ///dataTask
+        URLSession.shared.dataTask(with: request) {data, response, error in
+            
+            DispatchQueue.main.async {
                 
-                switch response.result {
-                    
-                case .success(let value) :
-                    completionHandler(value, nil, nil)
-                    
-                case .failure(let error) :
+                guard error == nil else {
+                    completionHandler(nil,.failedRequest)
+                    return
+                }
+                
+                guard let data else {
+                    completionHandler(nil,.noData)
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse else {
+                    completionHandler(nil,.invalidResponse)
+                    return
+                }
+                
+                guard response.statusCode == 200 else {
                     var errorMessage: String?
-                    if let data = response.data {
-                        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String] {
-                            errorMessage = json["errorMessage"]
-                        }
+                    if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String] {
+                        errorMessage = json["errorMessage"]
                     }
                     
-                    completionHandler(nil, error, errorMessage)
-
+                    completionHandler(nil,.failResponse(code: response.statusCode, message: errorMessage ?? "-"))
+                    return
+                }
+                
+                
+                
+                do {
+                    let result = try JSONDecoder().decode(model.self, from: data)
+                    completionHandler(result,nil)
+                    print(result)
+                }catch {
+                    completionHandler(nil,.invalidData)
+                    print(error)
                 }
             }
-    }
 
+        }
+        .resume()
+    }
+    
 }
 
 
@@ -56,8 +87,8 @@ extension APIFetcher : APIFetchable{
     func getSearchResult(keyword:String, page:Int, sort:String, displayAmount:Int,  handler: @escaping (SearchResult?, String?) -> Void) {
         let requestType = NetworkRequest.searchProduct(query: keyword, start: String(page), display: String(displayAmount), sort: sort)
         
-        getSingle(model : SearchResult.self, requestType : requestType){ value, error, errorMessage in
-            handler(value, errorMessage)
+        getSingle(model : SearchResult.self, requestType : requestType){ value, error in
+            handler(value, error?.errorMessage)
         }
     }
 }
