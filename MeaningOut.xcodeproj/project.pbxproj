@@ -67,6 +67,8 @@
 		7DA96C3B2C1DEAEE0007FBFC /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C3A2C1DEAEE0007FBFC /* SearchResultView.swift */; };
 		7DA96C3E2C1DEF6B0007FBFC /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C3D2C1DEF6B0007FBFC /* SearchResult.swift */; };
 		7DA9AC042C2BF37300AE3CE6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9AC032C2BF37300AE3CE6 /* NetworkManager.swift */; };
+		7DF5F8D82C306C2200D368A9 /* TabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5F8D72C306C2200D368A9 /* TabBarProtocol.swift */; };
+		7DF5F8DB2C306D0300D368A9 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5F8DA2C306D0300D368A9 /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +129,8 @@
 		7DA96C3A2C1DEAEE0007FBFC /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		7DA96C3D2C1DEF6B0007FBFC /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		7DA9AC032C2BF37300AE3CE6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7DF5F8D72C306C2200D368A9 /* TabBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarProtocol.swift; sourceTree = "<group>"; };
+		7DF5F8DA2C306D0300D368A9 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +355,7 @@
 		7D893BB92C1B2DA7003D552E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7DF5F8D92C306CF800D368A9 /* TabBar */,
 				7D24F8D52C200D80002D769C /* TableViewCell */,
 				7DA96C0F2C1C539F0007FBFC /* TextField */,
 				7DA96C0C2C1C092C0007FBFC /* View */,
@@ -456,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				7DA96C282C1D7E2E0007FBFC /* ReuseIdentifierProtocol.swift */,
+				7DF5F8D72C306C2200D368A9 /* TabBarProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -518,6 +524,14 @@
 				7DA96C3D2C1DEF6B0007FBFC /* SearchResult.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7DF5F8D92C306CF800D368A9 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7DF5F8DA2C306D0300D368A9 /* CustomTabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -610,12 +624,14 @@
 				7DA96C0E2C1C095C0007FBFC /* ProfileCircleView.swift in Sources */,
 				7DA96C3B2C1DEAEE0007FBFC /* SearchResultView.swift in Sources */,
 				7D30E5422C1ECAED0073DBDA /* SearchResultCollectionViewCell.swift in Sources */,
+				7DF5F8D82C306C2200D368A9 /* TabBarProtocol.swift in Sources */,
 				7D893B822C1B1C42003D552E /* ViewController.swift in Sources */,
 				7DA96C072C1C04DD0007FBFC /* ProfileImageSettingViewController.swift in Sources */,
 				7D24F8AA2C1F2A62002D769C /* SettingsView.swift in Sources */,
 				7DA96C192C1C68B30007FBFC /* NicknameSettingViewController+TextField.swift in Sources */,
 				7D893B7E2C1B1C42003D552E /* AppDelegate.swift in Sources */,
 				7D30E5402C1DF9CD0073DBDA /* OutlineBorderButton.swift in Sources */,
+				7DF5F8DB2C306D0300D368A9 /* CustomTabBarController.swift in Sources */,
 				7D24F8D92C2033B3002D769C /* SettingsViewController+TableView.swift in Sources */,
 				7D893B972C1B1DF4003D552E /* APIKey.swift in Sources */,
 				7DA96C392C1DEAD30007FBFC /* SearchResultViewController.swift in Sources */,

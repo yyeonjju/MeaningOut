@@ -61,33 +61,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func changeRootViewControllerToSearchHome(isFirstRendered : Bool = false) {
         
         guard let window = self.window else { return }
-        
-        //네비게이션 컨트롤러 생성
-        let SearchHomeVC = SearchHomeViewController()
-        SearchHomeVC.isFirstRendered = isFirstRendered
-        let searchHomeNav = UINavigationController(rootViewController: SearchHomeVC)
-        let settingsNav = UINavigationController(rootViewController: SettingsViewController())
-
-        //탭바 컨트롤러 생성
-        let tabBarVC = UITabBarController()
-        tabBarVC.tabBar.tintColor = Color.mainOrange
-        tabBarVC.tabBar.unselectedItemTintColor = Color.gray3
-        
-        // 탭바로 사용하기 위한 뷰 컨트롤러들 설정
-        tabBarVC.setViewControllers([searchHomeNav, settingsNav], animated: true)
-        tabBarVC.modalPresentationStyle = .fullScreen
-        
-        // 탭바 이름/이미지 설정 (이미지는 애플이 제공하는 것으로 사용)
-        guard let items = tabBarVC.tabBar.items else { return }
-        
-        //SearchHomeViewController
-        items[0].title = "검색"
-        items[0].image = IconImage.search
-        
-        //SettingsViewController
-        items[1].title = "설정"
-        items[1].image = IconImage.person
-        
+        let tabBarVC = CustomTabBarController(type: TabViewType.self)
         
         window.rootViewController = tabBarVC
         

@@ -165,3 +165,37 @@ enum SettingOptions : String, CaseIterable {
     }
     
 }
+
+enum TabViewType : String, CaseIterable, TabBarProtocol{
+    case searchHome
+    case settings
+    
+    
+    var rootVC : UIViewController.Type {
+        switch self {
+        case .searchHome:
+            return SearchHomeViewController.self
+        case .settings:
+            return SettingsViewController.self
+        }
+    }
+    
+    var iconImage : UIImage? {
+        switch self {
+        case .searchHome:
+            return IconImage.search
+        case .settings:
+            return IconImage.person
+        }
+    }
+    
+    var title : String {
+        switch self {
+        case .searchHome:
+            return "검색"
+        case .settings:
+            return "설정"
+        }
+    }
+    
+}
