@@ -114,9 +114,9 @@ final class SearchResultViewController: UIViewController {
             guard let self else{return }
             
             if let errorMessage {
-                DispatchQueue.main.async {
+//                DispatchQueue.main.async {
                     self.view.makeToast(errorMessage, duration: 3.0, position: .top)
-                }
+//                }
             }
             
             guard let data else {return }

@@ -69,10 +69,8 @@ class APIFetcher {
                 do {
                     let result = try JSONDecoder().decode(model.self, from: data)
                     completionHandler(result,nil)
-                    print(result)
                 }catch {
                     completionHandler(nil,.invalidData)
-                    print(error)
                 }
             }
 
