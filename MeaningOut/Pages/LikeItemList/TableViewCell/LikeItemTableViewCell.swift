@@ -53,11 +53,11 @@ final class LikeItemTableViewCell : UITableViewCell {
     }
     
     // MARK: - ConfigureData
-    func configureData() {
-//        productImageView.image =
-        productNamelLabel.text = "productNamelLabel"
-        mallNameLabel.text = "mallName"
-        priceLabel.text = "priceLabel"
+    func configureData(data : ProductTable) {
+        productImageView.loadImage(urlString: data.image)
+        productNamelLabel.text = data.title
+        mallNameLabel.text = data.mallName
+        priceLabel.text = "\(data.lprice) 원"
     }
     
     // MARK: - ConfigureUI

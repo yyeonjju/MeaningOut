@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 final class LikeItemListViewController : UIViewController {
@@ -14,6 +15,13 @@ final class LikeItemListViewController : UIViewController {
     let viewManager = LikeItemListView()
     
     // MARK: - Properties
+    let repository = RealmDBRepository()  //realm
+    var likeProductList : Results<ProductTable>! {
+        didSet{
+            viewManager.likeItemTableView.reloadData()
+        }
+    }
+    
     // MARK: - Lifecycle
     override func loadView() {
         view = viewManager
@@ -24,7 +32,16 @@ final class LikeItemListViewController : UIViewController {
         
         configureBackgroundColor()
         setupDelegate()
+        let value = repository.getAllObjects(tableModel: ProductTable.self)
+        likeProductList = value
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewManager.likeItemTableView.reloadData()
+    }
+    
     // MARK: - SetupDelegate
     private func setupDelegate() {
         viewManager.likeItemTableView.dataSource = self
@@ -44,11 +61,12 @@ final class LikeItemListViewController : UIViewController {
 
 extension LikeItemListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return likeProductList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LikeItemTableViewCell.description(), for: indexPath) as! LikeItemTableViewCell
-        cell.configureData()
+        let data = likeProductList[indexPath.row]
+        cell.configureData(data : data)
         return cell
     }
 }
