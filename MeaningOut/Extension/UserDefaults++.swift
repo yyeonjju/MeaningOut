@@ -29,11 +29,6 @@ extension UserDefaults {
         set { UserDefaults.standard.set(newValue, forKey: "searchList") }
     }
     
-    private var likeItemIdList : [String]? {
-        get { UserDefaults.standard.array(forKey: "likeItemIdList") as? [String]}
-        set { UserDefaults.standard.set(newValue, forKey: "likeItemIdList") }
-    }
-    
     
     //profileImageName
     func saveProfileImageName(_ profileImageName : String?) {
@@ -70,14 +65,6 @@ extension UserDefaults {
     }
     
     
-    //likeItemIdList
-    func saveLikeItemIdList(_ likeItemIdList : [String]?) {
-        self.likeItemIdList = likeItemIdList
-    }
-    func getLikeItemIdList() -> [String]? {
-        return likeItemIdList
-    }
-    
     
     
     //removeAllUserData
@@ -86,7 +73,6 @@ extension UserDefaults {
         saveNickname(nil)
         saveSignupDate(nil)
         saveSearchList(nil)
-        saveLikeItemIdList(nil)
     }
     
     

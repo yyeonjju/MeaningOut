@@ -76,9 +76,9 @@ class CustomTrailingLabelTableViewCell : UITableViewCell{
         }
     }
     
-    func configureTrailingView(option : SettingOptions) {
+    func configureTrailingView(option : SettingOptions, likeAmount : Int) {
         
-        let likeAmount = UserDefaults.standard.getLikeItemIdList()?.count ?? 0
+//        let likeAmount = UserDefaults.standard.getLikeItemIdList()?.count ?? 0
         
         trailingImageView.image = option.trailingImage?.withRenderingMode(.alwaysTemplate)
         trailingLabel.text = option.trailingLabelText(likeAmount: likeAmount)

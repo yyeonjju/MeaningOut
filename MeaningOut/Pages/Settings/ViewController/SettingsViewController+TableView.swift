@@ -16,7 +16,7 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CustomTrailingLabelTableViewCell.identifier) as! CustomTrailingLabelTableViewCell
         let rowData = SettingOptions.allCases[indexPath.row]
         cell.textLabel?.text = rowData.rawValue
-        cell.configureTrailingView(option: rowData)
+        cell.configureTrailingView(option: rowData, likeAmount: likeProductList.count)
         
         if indexPath.row <= 3 {
             cell.selectionStyle = .none

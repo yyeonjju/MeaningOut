@@ -16,22 +16,26 @@ extension SearchResultViewController : UICollectionViewDelegate, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
         guard let searchResult else {return cell}
         let itemData = searchResult.items[indexPath.row]
-        let isLike = likeItemIdList.contains(itemData.productId)
-    
+        let isLike = likeProductList.map{$0.productId}.contains(itemData.productId)
+        
+        
         cell.configureData(data: itemData, isLike: isLike, searchKeyword: navigationItem.title)
         cell.manageLikeItemIdList = {[weak self] _ in
             guard let self else { return }
-            if isLike { ///좋아요가 되어 있는 상태에서 한번 더 눌렀으면 좋아요 리스트에서 삭제
-                let index = self.likeItemIdList.firstIndex{
-                    $0 == itemData.productId
-                }
-                guard let index else {return }
-                self.likeItemIdList.remove(at: index)
-                UserDefaults.standard.saveLikeItemIdList(self.likeItemIdList)
-            }else { ///좋아요가 안되어 있는 상태에서 눌렀으면 좋아요 리스트에 추가
-                self.likeItemIdList.append(itemData.productId)
-                UserDefaults.standard.saveLikeItemIdList(self.likeItemIdList)
+            
+            
+            if let index = likeProductList.firstIndex(where: {$0.productId == itemData.productId}) {
+                //장바구니 삭제
+                let data = likeProductList[index]
+                repository.removeItem(data)
+            } else {
+                //장바구니 추가
+                let data = ProductTable(title: itemData.title, link: itemData.link, image: itemData.image, lprice: itemData.lprice, hprice: itemData.hprice, mallName: itemData.mallName, productId: itemData.productId, productType: itemData.productType, brand: itemData.brand, maker: itemData.maker)
+                repository.createItem(data)
             }
+            
+            self.viewManager.searchResultCollectionView.reloadItems(at: [IndexPath(row: indexPath.row, section: indexPath.section)])
+
         }
         
         return cell
@@ -40,8 +44,8 @@ extension SearchResultViewController : UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let searchResult else {return }
         let itemData = searchResult.items[indexPath.row]
-        let isLiked = likeItemIdList.contains(itemData.productId)
-        pushToItemDetailPage(itemTitle:itemData.titleWithoutHtmlTag, itemLink: itemData.link, isLiked : isLiked, itemId: itemData.productId)
+        let isLiked = likeProductList.map{$0.productId}.contains(itemData.productId)
+        pushToItemDetailPage(isLiked : isLiked,product: itemData)
         
     }
 }

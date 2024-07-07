@@ -70,6 +70,9 @@
 		7DBE11FA2C3A31BE00695DCF /* LikeItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE11F92C3A31BE00695DCF /* LikeItemListViewController.swift */; };
 		7DBE11FC2C3A31E700695DCF /* LikeItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE11FB2C3A31E700695DCF /* LikeItemListView.swift */; };
 		7DBE11FF2C3A354B00695DCF /* LikeItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE11FE2C3A354B00695DCF /* LikeItemTableViewCell.swift */; };
+		7DBE12042C3A3C3800695DCF /* ProductTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE12032C3A3C3800695DCF /* ProductTable.swift */; };
+		7DBE12072C3A3C7B00695DCF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7DBE12062C3A3C7B00695DCF /* RealmSwift */; };
+		7DBE120A2C3A3E5B00695DCF /* RealmDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE12092C3A3E5B00695DCF /* RealmDBRepository.swift */; };
 		7DF5F8D82C306C2200D368A9 /* TabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5F8D72C306C2200D368A9 /* TabBarProtocol.swift */; };
 		7DF5F8DB2C306D0300D368A9 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5F8DA2C306D0300D368A9 /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
@@ -135,6 +138,8 @@
 		7DBE11F92C3A31BE00695DCF /* LikeItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeItemListViewController.swift; sourceTree = "<group>"; };
 		7DBE11FB2C3A31E700695DCF /* LikeItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeItemListView.swift; sourceTree = "<group>"; };
 		7DBE11FE2C3A354B00695DCF /* LikeItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeItemTableViewCell.swift; sourceTree = "<group>"; };
+		7DBE12032C3A3C3800695DCF /* ProductTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTable.swift; sourceTree = "<group>"; };
+		7DBE12092C3A3E5B00695DCF /* RealmDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBRepository.swift; sourceTree = "<group>"; };
 		7DF5F8D72C306C2200D368A9 /* TabBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarProtocol.swift; sourceTree = "<group>"; };
 		7DF5F8DA2C306D0300D368A9 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DBE12072C3A3C7B00695DCF /* RealmSwift in Frameworks */,
 				7D893BAE2C1B2579003D552E /* Alamofire in Frameworks */,
 				7D893BB12C1B258F003D552E /* IQKeyboardManagerSwift in Frameworks */,
 				7D893BAB2C1B256D003D552E /* Kingfisher in Frameworks */,
@@ -259,6 +265,7 @@
 		7D893B7C2C1B1C42003D552E /* MeaningOut */ = {
 			isa = PBXGroup;
 			children = (
+				7DBE12002C3A3B9D00695DCF /* Database */,
 				7D893B952C1B1DDD003D552E /* API */,
 				7D30E53A2C1DF0AF0073DBDA /* Networking */,
 				7DA96C272C1D7E0D0007FBFC /* Protocol */,
@@ -567,6 +574,31 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		7DBE12002C3A3B9D00695DCF /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				7DBE12082C3A3E4B00695DCF /* RealmRepository */,
+				7DBE12022C3A3C1400695DCF /* Model */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		7DBE12022C3A3C1400695DCF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7DBE12032C3A3C3800695DCF /* ProductTable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7DBE12082C3A3E4B00695DCF /* RealmRepository */ = {
+			isa = PBXGroup;
+			children = (
+				7DBE12092C3A3E5B00695DCF /* RealmDBRepository.swift */,
+			);
+			path = RealmRepository;
+			sourceTree = "<group>";
+		};
 		7DF5F8D92C306CF800D368A9 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +629,7 @@
 				7D893BAD2C1B2579003D552E /* Alamofire */,
 				7D893BB02C1B258F003D552E /* IQKeyboardManagerSwift */,
 				7D13E3172C216D3B006307C7 /* Toast */,
+				7DBE12062C3A3C7B00695DCF /* RealmSwift */,
 			);
 			productName = MeaningOut;
 			productReference = 7D893B7A2C1B1C42003D552E /* MeaningOut.app */;
@@ -632,6 +665,7 @@
 				7D893BAC2C1B2579003D552E /* XCRemoteSwiftPackageReference "Alamofire" */,
 				7D893BAF2C1B258F003D552E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				7D13E3162C216D3A006307C7 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				7DBE12052C3A3C7B00695DCF /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 7D893B7B2C1B1C42003D552E /* Products */;
 			projectDirPath = "";
@@ -668,6 +702,7 @@
 				7DF5F8D82C306C2200D368A9 /* TabBarProtocol.swift in Sources */,
 				7D893B822C1B1C42003D552E /* ViewController.swift in Sources */,
 				7DA96C072C1C04DD0007FBFC /* ProfileImageSettingViewController.swift in Sources */,
+				7DBE12042C3A3C3800695DCF /* ProductTable.swift in Sources */,
 				7D24F8AA2C1F2A62002D769C /* SettingsView.swift in Sources */,
 				7DA96C192C1C68B30007FBFC /* NicknameSettingViewController+TextField.swift in Sources */,
 				7D893B7E2C1B1C42003D552E /* AppDelegate.swift in Sources */,
@@ -684,6 +719,7 @@
 				7D2232E62C2079010047B1CE /* DateFormatter++.swift in Sources */,
 				7D893B9D2C1B1FEA003D552E /* NameSpace.swift in Sources */,
 				7DA96C1B2C1C9F1B0007FBFC /* utilFunc.swift in Sources */,
+				7DBE120A2C3A3E5B00695DCF /* RealmDBRepository.swift in Sources */,
 				7D24F8D72C200D95002D769C /* CustomTrailingLabelTableViewCell.swift in Sources */,
 				7DA96C052C1BFE660007FBFC /* NicknameSettingViewController.swift in Sources */,
 				7DA9AC042C2BF37300AE3CE6 /* NetworkManager.swift in Sources */,
@@ -993,6 +1029,14 @@
 				minimumVersion = 7.0.3;
 			};
 		};
+		7DBE12052C3A3C7B00695DCF /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1020,6 +1064,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7D893BAF2C1B258F003D552E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		7DBE12062C3A3C7B00695DCF /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DBE12052C3A3C7B00695DCF /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

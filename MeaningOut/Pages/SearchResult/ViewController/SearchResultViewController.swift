@@ -7,6 +7,7 @@
 
 import UIKit
 import Toast
+import RealmSwift
 
 final class SearchResultViewController: UIViewController {
     // MARK: - UI
@@ -14,11 +15,6 @@ final class SearchResultViewController: UIViewController {
     lazy var sortButtonList = viewManager.sortBUttonStackView.arrangedSubviews as! [OutlineBorderButton]
     
     // MARK: - Properties
-    var likeItemIdList = UserDefaults.standard.getLikeItemIdList() ?? [] {
-        didSet{
-            viewManager.searchResultCollectionView.reloadData()
-        }
-    }
     var searchKeyword : String? //이전 페이지에서 받는 데이터
     var page = 1
     var sort : String {
@@ -48,6 +44,9 @@ final class SearchResultViewController: UIViewController {
         }
     }
     
+    let repository = RealmDBRepository()  //realm
+    var likeProductList : Results<ProductTable>! //realm
+    
     
     // MARK: - Lifecycle
     
@@ -64,13 +63,18 @@ final class SearchResultViewController: UIViewController {
         getSearchResult()
         setupAddTarget()
         setupDelegate()
+        
+//        repository.checkFileURL()
+        let value = repository.getAllObjects(tableModel: ProductTable.self)
+        likeProductList = value
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        likeItemIdList = UserDefaults.standard.getLikeItemIdList() ?? []
+        super.viewWillAppear(animated)
+        viewManager.searchResultCollectionView.reloadData()
     }
-
+    
     // MARK: - SetupDelegate
     private func setupDelegate() {
         viewManager.searchResultCollectionView.dataSource = self
@@ -133,12 +137,10 @@ final class SearchResultViewController: UIViewController {
     
     
     // MARK: - PageTransition
-    func pushToItemDetailPage(itemTitle: String, itemLink : String, isLiked : Bool, itemId : String) {
+    func pushToItemDetailPage(isLiked : Bool, product : SearchResultItem) {
         let vc = ItemDetailViewController()
-        vc.itemTitle = itemTitle
-        vc.itemLink = itemLink
         vc.isLiked = isLiked
-        vc.itemId = itemId
+        vc.product = product
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 import WebKit
 import SnapKit
+import RealmSwift
 
 final class ItemDetailViewController: UIViewController {
     // MARK: - UI
@@ -15,17 +16,18 @@ final class ItemDetailViewController: UIViewController {
     
     // MARK: - Properties
     
-    var itemTitle : String?
-    var itemLink : String?
-    var itemId : String?
     var isLiked : Bool?
+    var product : SearchResultItem?
+    let repository = RealmDBRepository()  //realm
+    var likeProductList : Results<ProductTable>! //realm
+
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = itemTitle
+        navigationItem.title = product?.titleWithoutHtmlTag
         configureNavigationBackButtonItem()
         configureNavigationItem()
         
@@ -34,6 +36,8 @@ final class ItemDetailViewController: UIViewController {
         configureLayout()
         loadWebView()
         
+        let value = repository.getAllObjects(tableModel: ProductTable.self)
+        likeProductList = value
     }
     
     // MARK: - EventSelector
@@ -63,7 +67,7 @@ final class ItemDetailViewController: UIViewController {
     }
     
     private func loadWebView() {
-        guard let itemLink else {return }
+        guard let itemLink = product?.link else {return }
         let request = URLRequest(url: URL(string: itemLink)!)
         webView.load(request)
     }
@@ -72,28 +76,25 @@ final class ItemDetailViewController: UIViewController {
     private func toggleLike() {
         //상태값 토글
         isLiked?.toggle()
-        //UserDefaults에 id값 관리
         manageLikeItemIdListData()
         //네비게이션 아이템의 컬러 다시 세팅
         configureNavigationItem()
     }
     
     private func manageLikeItemIdListData() {
-        var likeItemIdList = UserDefaults.standard.getLikeItemIdList() ?? []
+        guard let isLiked, let product else {return }
         
-        guard let isLiked, let itemId else {return }
         if isLiked {
-            //append
-            likeItemIdList.append(itemId)
-            UserDefaults.standard.saveLikeItemIdList(likeItemIdList)
+            //장바구니 추가
+            let data = ProductTable(title: product.title, link: product.link, image: product.image, lprice: product.lprice, hprice: product.hprice, mallName: product.mallName, productId: product.productId, productType: product.productType, brand: product.brand, maker: product.maker)
+            repository.createItem(data)
+            
         }else {
-            //remove
-            let index = likeItemIdList.firstIndex{
-                $0 == itemId
-            }
-            guard let index else {return }
-            likeItemIdList.remove(at: index)
-            UserDefaults.standard.saveLikeItemIdList(likeItemIdList)
+            
+            guard let index = likeProductList.firstIndex(where: {$0.productId == product.productId}) else {return }
+            //장바구니 삭제
+            let data = likeProductList[index]
+            repository.removeItem(data)
         }
     }
 

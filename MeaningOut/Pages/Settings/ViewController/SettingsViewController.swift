@@ -7,10 +7,16 @@
 
 import UIKit
 import SnapKit
+import RealmSwift
 
 final class SettingsViewController: UIViewController {
     // MARK: - UI
     let viewManager = SettingsView()
+    
+    // MARK: - Properties
+    let repository = RealmDBRepository()  //realm
+    var likeProductList : Results<ProductTable>! //realm
+
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -23,6 +29,8 @@ final class SettingsViewController: UIViewController {
         configureBackgroundColor()
         setupDelegate()
         setupGesture()
+        let value = repository.getAllObjects(tableModel: ProductTable.self)
+        likeProductList = value
     }
     
     override func viewWillAppear(_ animated: Bool) {
