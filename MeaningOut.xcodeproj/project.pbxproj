@@ -67,6 +67,9 @@
 		7DA96C3B2C1DEAEE0007FBFC /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C3A2C1DEAEE0007FBFC /* SearchResultView.swift */; };
 		7DA96C3E2C1DEF6B0007FBFC /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA96C3D2C1DEF6B0007FBFC /* SearchResult.swift */; };
 		7DA9AC042C2BF37300AE3CE6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9AC032C2BF37300AE3CE6 /* NetworkManager.swift */; };
+		7DBE11FA2C3A31BE00695DCF /* LikeItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE11F92C3A31BE00695DCF /* LikeItemListViewController.swift */; };
+		7DBE11FC2C3A31E700695DCF /* LikeItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE11FB2C3A31E700695DCF /* LikeItemListView.swift */; };
+		7DBE11FF2C3A354B00695DCF /* LikeItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE11FE2C3A354B00695DCF /* LikeItemTableViewCell.swift */; };
 		7DF5F8D82C306C2200D368A9 /* TabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5F8D72C306C2200D368A9 /* TabBarProtocol.swift */; };
 		7DF5F8DB2C306D0300D368A9 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5F8DA2C306D0300D368A9 /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
@@ -129,6 +132,9 @@
 		7DA96C3A2C1DEAEE0007FBFC /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		7DA96C3D2C1DEF6B0007FBFC /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		7DA9AC032C2BF37300AE3CE6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7DBE11F92C3A31BE00695DCF /* LikeItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeItemListViewController.swift; sourceTree = "<group>"; };
+		7DBE11FB2C3A31E700695DCF /* LikeItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeItemListView.swift; sourceTree = "<group>"; };
+		7DBE11FE2C3A354B00695DCF /* LikeItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeItemTableViewCell.swift; sourceTree = "<group>"; };
 		7DF5F8D72C306C2200D368A9 /* TabBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarProtocol.swift; sourceTree = "<group>"; };
 		7DF5F8DA2C306D0300D368A9 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,6 +308,7 @@
 		7D893B9E2C1B2405003D552E /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				7DBE11F62C3A316800695DCF /* LikeItemList */,
 				7D24F8A12C1F28A9002D769C /* Settings */,
 				7D24F89C2C1F11A6002D769C /* ItemDetail */,
 				7DA96C342C1DEA900007FBFC /* SearchResult */,
@@ -526,6 +533,40 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7DBE11F62C3A316800695DCF /* LikeItemList */ = {
+			isa = PBXGroup;
+			children = (
+				7DBE11FD2C3A353B00695DCF /* TableViewCell */,
+				7DBE11F82C3A31A400695DCF /* View */,
+				7DBE11F72C3A319500695DCF /* ViewController */,
+			);
+			path = LikeItemList;
+			sourceTree = "<group>";
+		};
+		7DBE11F72C3A319500695DCF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7DBE11F92C3A31BE00695DCF /* LikeItemListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7DBE11F82C3A31A400695DCF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7DBE11FB2C3A31E700695DCF /* LikeItemListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7DBE11FD2C3A353B00695DCF /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7DBE11FE2C3A354B00695DCF /* LikeItemTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		7DF5F8D92C306CF800D368A9 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,8 +700,10 @@
 				7D893BB62C1B2638003D552E /* UIImageView++.swift in Sources */,
 				7DA96C3E2C1DEF6B0007FBFC /* SearchResult.swift in Sources */,
 				7D893BA32C1B2498003D552E /* OnboardingViewController.swift in Sources */,
+				7DBE11FF2C3A354B00695DCF /* LikeItemTableViewCell.swift in Sources */,
 				7DA96C262C1D7DFB0007FBFC /* ProfileImageCollectionViewCell.swift in Sources */,
 				7D893BA52C1B24BF003D552E /* OnboardingView.swift in Sources */,
+				7DBE11FC2C3A31E700695DCF /* LikeItemListView.swift in Sources */,
 				7D170BCA2C25B4820003DB95 /* Error.swift in Sources */,
 				7DA96C132C1C543F0007FBFC /* NormalTextFieldView.swift in Sources */,
 				7D30E5442C1ECB200073DBDA /* SearchResultViewController+CollectionView.swift in Sources */,
@@ -669,6 +712,7 @@
 				7D2232ED2C215A070047B1CE /* String++.swift in Sources */,
 				7DA96C232C1CA7FF0007FBFC /* UserDefaults++.swift in Sources */,
 				7DA96C332C1DCAD10007FBFC /* RecentSearchTableViewCell.swift in Sources */,
+				7DBE11FA2C3A31BE00695DCF /* LikeItemListViewController.swift in Sources */,
 				7DA96C012C1BFA900007FBFC /* UILabel++.swift in Sources */,
 				7D893B802C1B1C42003D552E /* SceneDelegate.swift in Sources */,
 				7DA96C152C1C550F0007FBFC /* Separator.swift in Sources */,

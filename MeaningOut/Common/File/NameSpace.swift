@@ -73,6 +73,8 @@ enum IconImage {
     static let chevronRight = UIImage(systemName: "chevron.right")
     static let chevronLeft = UIImage(systemName: "chevron.left")
     static let cameraFill = UIImage(systemName: "camera.fill")
+    static let starFill = UIImage(systemName: "star.fill")
+    static let cartFill = UIImage(systemName: "cart.fill")
 }
 
 enum ProfileImageName {
@@ -168,6 +170,7 @@ enum SettingOptions : String, CaseIterable {
 
 enum TabViewType : String, CaseIterable, TabBarProtocol{
     case searchHome
+    case likedItem
     case settings
     
     
@@ -175,6 +178,8 @@ enum TabViewType : String, CaseIterable, TabBarProtocol{
         switch self {
         case .searchHome:
             return SearchHomeViewController.self
+        case .likedItem :
+            return LikeItemListViewController.self
         case .settings:
             return SettingsViewController.self
         }
@@ -184,6 +189,8 @@ enum TabViewType : String, CaseIterable, TabBarProtocol{
         switch self {
         case .searchHome:
             return IconImage.search
+        case .likedItem :
+            return IconImage.cartFill
         case .settings:
             return IconImage.person
         }
@@ -193,6 +200,8 @@ enum TabViewType : String, CaseIterable, TabBarProtocol{
         switch self {
         case .searchHome:
             return "검색"
+        case .likedItem :
+            return "장바구니"
         case .settings:
             return "설정"
         }
