@@ -73,6 +73,8 @@
 		7DBE12042C3A3C3800695DCF /* ProductTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE12032C3A3C3800695DCF /* ProductTable.swift */; };
 		7DBE12072C3A3C7B00695DCF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7DBE12062C3A3C7B00695DCF /* RealmSwift */; };
 		7DBE120A2C3A3E5B00695DCF /* RealmDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE12092C3A3E5B00695DCF /* RealmDBRepository.swift */; };
+		7DE388842C3D272000C52276 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE388832C3D272000C52276 /* Observable.swift */; };
+		7DE388872C3D282900C52276 /* NicknameSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE388862C3D282900C52276 /* NicknameSettingViewModel.swift */; };
 		7DF5F8D82C306C2200D368A9 /* TabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5F8D72C306C2200D368A9 /* TabBarProtocol.swift */; };
 		7DF5F8DB2C306D0300D368A9 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5F8DA2C306D0300D368A9 /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
@@ -140,6 +142,8 @@
 		7DBE11FE2C3A354B00695DCF /* LikeItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeItemTableViewCell.swift; sourceTree = "<group>"; };
 		7DBE12032C3A3C3800695DCF /* ProductTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTable.swift; sourceTree = "<group>"; };
 		7DBE12092C3A3E5B00695DCF /* RealmDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBRepository.swift; sourceTree = "<group>"; };
+		7DE388832C3D272000C52276 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		7DE388862C3D282900C52276 /* NicknameSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingViewModel.swift; sourceTree = "<group>"; };
 		7DF5F8D72C306C2200D368A9 /* TabBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarProtocol.swift; sourceTree = "<group>"; };
 		7DF5F8DA2C306D0300D368A9 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,6 +300,7 @@
 		7D893B9A2C1B1FD4003D552E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7DE388822C3D270F00C52276 /* Observe */,
 				7D170BC82C25B46D0003DB95 /* Error */,
 				7D893B9B2C1B1FDA003D552E /* File */,
 			);
@@ -390,6 +395,7 @@
 		7DA96C022C1BFE130007FBFC /* ProfileSetting */ = {
 			isa = PBXGroup;
 			children = (
+				7DE388852C3D281200C52276 /* ViewModel */,
 				7DA96C242C1D7DDD0007FBFC /* CollectionViewCell */,
 				7DA96C082C1C07DE0007FBFC /* View */,
 				7DA96C032C1BFE220007FBFC /* ViewController */,
@@ -599,6 +605,22 @@
 			path = RealmRepository;
 			sourceTree = "<group>";
 		};
+		7DE388822C3D270F00C52276 /* Observe */ = {
+			isa = PBXGroup;
+			children = (
+				7DE388832C3D272000C52276 /* Observable.swift */,
+			);
+			path = Observe;
+			sourceTree = "<group>";
+		};
+		7DE388852C3D281200C52276 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7DE388862C3D282900C52276 /* NicknameSettingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		7DF5F8D92C306CF800D368A9 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,6 +723,7 @@
 				7D30E5422C1ECAED0073DBDA /* SearchResultCollectionViewCell.swift in Sources */,
 				7DF5F8D82C306C2200D368A9 /* TabBarProtocol.swift in Sources */,
 				7D893B822C1B1C42003D552E /* ViewController.swift in Sources */,
+				7DE388872C3D282900C52276 /* NicknameSettingViewModel.swift in Sources */,
 				7DA96C072C1C04DD0007FBFC /* ProfileImageSettingViewController.swift in Sources */,
 				7DBE12042C3A3C3800695DCF /* ProductTable.swift in Sources */,
 				7D24F8AA2C1F2A62002D769C /* SettingsView.swift in Sources */,
@@ -720,6 +743,7 @@
 				7D893B9D2C1B1FEA003D552E /* NameSpace.swift in Sources */,
 				7DA96C1B2C1C9F1B0007FBFC /* utilFunc.swift in Sources */,
 				7DBE120A2C3A3E5B00695DCF /* RealmDBRepository.swift in Sources */,
+				7DE388842C3D272000C52276 /* Observable.swift in Sources */,
 				7D24F8D72C200D95002D769C /* CustomTrailingLabelTableViewCell.swift in Sources */,
 				7DA96C052C1BFE660007FBFC /* NicknameSettingViewController.swift in Sources */,
 				7DA9AC042C2BF37300AE3CE6 /* NetworkManager.swift in Sources */,

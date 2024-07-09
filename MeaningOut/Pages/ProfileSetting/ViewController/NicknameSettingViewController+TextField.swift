@@ -10,20 +10,8 @@ import UIKit
 extension NicknameSettingViewController : UITextFieldDelegate{
     //입력할때마다
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var returnResult = false
-        
-        do{
-            returnResult = try validateNicknameInputCharacter(willBeReplaced: string)
-        } catch (let nicknammeError as NicknameInputError) {
-            print("validateNicknameInputCharacter error", nicknammeError)
-            DispatchQueue.main.async {
-                self.changeWarningLabel(nicknammeError.validationNoticeText())
-            }
-        }catch {
-            print(error)
-        }
-        
-        return returnResult
+        vm.inputNicknameWillReplaced.value = string
+        return vm.outputChatacterValidation.value
     }
 }
 

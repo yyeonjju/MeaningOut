@@ -14,9 +14,8 @@ class NicknameSettingViewController: UIViewController {
     let viewManager = NicknameSettingView()
     
     // MARK: - Properties
-    let textFieldMinCount = 2
-    let textFieldMaxCount = 9
     var pageMode : PageMode = .onboarding
+    let vm = NicknameSettingViewModel()
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -36,6 +35,8 @@ class NicknameSettingViewController: UIViewController {
         if pageMode == .onboarding {
             setupRandomProfileImageName()
         }
+        
+        bindData()
 
     }
     
@@ -44,6 +45,19 @@ class NicknameSettingViewController: UIViewController {
         super.viewWillAppear(animated)
         
         configureProfileImage()
+    }
+    
+    // MARK: - BindData
+    func bindData() {
+        vm.outputValidationNoticeText.bind { [weak self] value in
+            guard let self else {return }
+            self.changeWarningLabel(value)
+        }
+        
+        vm.outputCountResettingNicknameText.bind { [weak self] value in
+            guard let self else {return }
+            viewManager.nicknameTextFieldView.textField.text = value
+        }
     }
     
     // MARK: - SetupDelegate
@@ -66,7 +80,7 @@ class NicknameSettingViewController: UIViewController {
     @objc func completeButtonTapped() {
         guard let textCount = viewManager.nicknameTextFieldView.textField.text?.count else {return }
 
-        if textCount >= textFieldMinCount && textCount <= textFieldMaxCount{
+        if textCount >= NicknameValidation.textMinCount && textCount <= NicknameValidation.textMaxCount{
             showAlert(title: "프로필 세팅을 완료하시겠습니까?", message: nil, style: .alert){
                 
                 if self.pageMode == .onboarding {
@@ -93,7 +107,8 @@ class NicknameSettingViewController: UIViewController {
     }
     
     @objc func nicknameTextFieldDidChange() {
-        validateNicknameCount()
+        vm.inputNicknameText.value = viewManager.nicknameTextFieldView.textField.text
+
     }
     
     @objc func profileImageTapped() {
@@ -111,23 +126,9 @@ class NicknameSettingViewController: UIViewController {
     }
     
     // MARK: - Method
-
-    private func validateNicknameCount() {
-        do {
-            try validateNicknameInputCount(textField: viewManager.nicknameTextFieldView.textField)
-        } catch (let nicknammeError as NicknameInputError) {
-            print("validateNicknameInputCharacter error", nicknammeError)
-            DispatchQueue.main.async {
-                self.changeWarningLabel(nicknammeError.validationNoticeText())
-            }
-        }catch {
-            print(error)
-        }
-        
-        changeWarningLabel()
-    }
     
     func changeWarningLabel(_ noticeText : String = "") {
+        
         let targetLabel = viewManager.nicknameTextFieldView.warningLabel
         if noticeText.isEmpty {
             targetLabel.text = NicknameValidationNoticeText.validNickname

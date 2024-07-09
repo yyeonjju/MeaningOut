@@ -33,34 +33,6 @@ internal func isOnlyWhitespace(_ text: String) -> Bool {
 }
 
 
-///닉네임 유효성 검증 - 1)  곧 입력될 문자 판벌 (shouldChangeCharactersIn 시점)
-internal func validateNicknameInputCharacter(willBeReplaced : String) throws -> Bool {
-    let invalidSpecialCharaters = NicknameValidation.invalidSpecialCharaters
 
-    if let index = invalidSpecialCharaters.firstIndex(of: willBeReplaced) {
-        throw NicknameInputError.specialCharacterInput(character: invalidSpecialCharaters[index])
-    }
-    
-    if let _ = Int(willBeReplaced) {
-        throw NicknameInputError.numberInput
-    }
-    
-    return true
-}
 
-///닉네임 유효성 검증 - 2)  입력된 후 count 판별 (.editingChanged 시점)
-internal func validateNicknameInputCount(textField : UITextField) throws {
-    let textMinCount = NicknameValidation.textMinCount
-    let textMaxCount = NicknameValidation.textMaxCount
-    
-    guard let text = textField.text else {return }
-    
-    if (text.count) < textMinCount {
-        throw NicknameInputError.lessThanMinAmount
-    }
 
-    if (text.count) > textMaxCount {
-        textField.text = String(text.dropLast())
-        throw NicknameInputError.moreThanMaxAmount
-    }
-}
