@@ -33,7 +33,7 @@ class NicknameSettingViewController: UIViewController {
         setupAddTarget()
         setupGestureEvent()
         if pageMode == .onboarding {
-            setupRandomProfileImageName()
+            vm.inputViewDidLoadTrigger.value = ()
         }
         
         bindData()
@@ -58,6 +58,15 @@ class NicknameSettingViewController: UIViewController {
             guard let self else {return }
             viewManager.nicknameTextFieldView.textField.text = value
         }
+        
+        if pageMode == .onboarding{
+            vm.outputRamdomProfileImageName.bind { [weak self] value in
+                guard let self else {return }
+                UserDefaults.standard.saveProfileImageName(value)
+                configureProfileImage()
+            }
+        }
+
     }
     
     // MARK: - SetupDelegate
@@ -140,13 +149,6 @@ class NicknameSettingViewController: UIViewController {
             targetLabel.alpha = 1
         }
 
-    }
-    
-    private func setupRandomProfileImageName() {
-        let profileImageName = ProfileImageName.returnRandomProfileImageName()
-        UserDefaults.standard.saveProfileImageName(profileImageName)
-        
-        configureProfileImage()
     }
     
     private func configureProfileImage() {

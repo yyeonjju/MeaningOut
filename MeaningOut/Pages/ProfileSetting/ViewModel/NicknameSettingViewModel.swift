@@ -16,10 +16,10 @@ final class NicknameSettingViewModel {
     var inputNicknameWillReplaced = Observable("")
     //닉네임 textField 입력 - editingChanged 시점
     var inputNicknameText : Observable<String?> = Observable(nil)
-
+    // viewDidLoad 시점에 랜덤으로 프로필 사진 세팅해줄 때
+    var inputViewDidLoadTrigger : Observable<Void?> = Observable(nil)
+    
     //+) 저장버튼 눌렀을 때
-    //+) viewDidLoad 시점에 랜덤으로 프로필 사진 세팅해줄 때
-    //+) viewWillAppear 시점 선택했던 프로필 이미지 이름 가져오기
     
     
     //out
@@ -29,6 +29,8 @@ final class NicknameSettingViewModel {
     var outputChatacterValidation = Observable(false)
     //입력한 인풋 count 유효성에 대한 문자 자르기 여부
     var outputCountResettingNicknameText = Observable("")
+    //랜덤으로 프로필 사진 세팅
+    var outputRamdomProfileImageName = Observable("")
    
 
     
@@ -37,9 +39,16 @@ final class NicknameSettingViewModel {
             guard let self else {return }
             self.outputChatacterValidation.value = self.whetherToKeepChanging(replacementString: value)
         }
+        
         inputNicknameText.bind {[weak self] value in
             guard let self else {return }
             validateNicknameCount(inputValue : value)
+        }
+        
+        inputViewDidLoadTrigger.bind {[weak self] _ in
+            guard let self else {return }
+            let ramdomProfileImageName = ProfileImageName.returnRandomProfileImageName()
+            self.outputRamdomProfileImageName.value = ramdomProfileImageName
         }
     }
     
