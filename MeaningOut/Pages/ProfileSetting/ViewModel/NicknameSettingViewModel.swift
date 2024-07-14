@@ -31,7 +31,6 @@ final class NicknameSettingViewModel {
     var outputCountResettingNicknameText = Observable("")
     //랜덤으로 프로필 사진 세팅
     var outputRamdomProfileImageName = Observable("")
-   
 
     
     init() {
